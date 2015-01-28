@@ -24,3 +24,4 @@ SOFTWARE.
 ------
 
 Ich übernehme keine Haftung für die, von mir auf Github bereitgestellte Software. 
+Das Grundgerüst dieser Website basiert auf Boxify (http://peterfinlan.com / http://tympanus.net/codrops/licensing/)
