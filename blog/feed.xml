@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Enzyklopädie eines Entwicklers (E3)</title>
+    <description>Mein persönliches Nachschlagewerk. Kurze und präzise Anleitungen, Tipps, Diskussionen und einiges Mehr über Technik, Programmierung und Prognosen.
+</description>
+    <link>http://pascalraszyk.de//</link>
+    <atom:link href="http://pascalraszyk.de//feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 29 Jan 2015 18:07:51 +0100</pubDate>
+    <lastBuildDate>Thu, 29 Jan 2015 18:07:51 +0100</lastBuildDate>
+    <generator>Jekyll v2.5.3</generator>
+    
+  </channel>
+</rss>

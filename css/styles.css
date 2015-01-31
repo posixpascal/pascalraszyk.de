@@ -930,17 +930,25 @@ Screenshots
 /* ==========================================================================
 Download Now
 ========================================================================== */
-.download {
+.download, .quotes {
     padding: 120px 0;
     background-color: #3f6184;
 }
-.download h1 {
+.download h1, .quotes h1 {
     margin: 0 0 15px 0;
     color: #fff;
     font-weight: 400;
     font-size: 40px;
 }
-
+.quotes {
+    background-color:  #db3f3f;
+}
+.quotes h1:before {
+    content: open-quote;
+}
+.quotes h1:after {
+    content: close-quote;
+}
 /* ==========================================================================
 Footer
 ========================================================================== */
@@ -1080,7 +1088,7 @@ Waypoints
 .wp1, .wp2, .wp3, .wp4, .wp5, .wp6 {
     visibility: hidden
 }
-.bounceInLeft, .bounceInRight, .fadeInUp, .fadeInUpDelay, .fadeInDown, .fadeInUpD, .fadeInLeft, .fadeInRight, .bounceInDown {
+.bounceInLeft, .bounceInRight, .fadeInUp, .fadeInUpDelay, .fadeInDown, .fadeInUpD, .fadeInLeft, .fadeInRight, .bounceInDown, .zoomIn{
     visibility: visible
 }
 .delay-05s {
