@@ -449,10 +449,10 @@ p {
     line-height: 25px;
 }
 a {
-    color: #73d0da
+    color: #da7373
 }
 a:hover, a:focus {
-    color: #73d0da;
+    color: #da7373;
     text-decoration: none;
 }
 .texture-overlay {
@@ -461,7 +461,8 @@ a:hover, a:focus {
     left: 0px;
     width: 100%;
     height: 100%;
-    background-image: url(../img/grid.png);
+    background: rgba(0,0,0,.3);
+
 }
 
 /* ==========================================================================
@@ -477,7 +478,7 @@ Buttons
     font-size: 16px;
 }
 .use-btn:hover, .use-btn:focus {
-    background-color: #73d0da;
+    background-color: #da7373;
     color: #fff;
     text-decoration: none;
 }
@@ -490,8 +491,8 @@ Buttons
     font-size: 16px;
 }
 .learn-btn:hover, .download-btn:hover, .learn-btn:focus, .download-btn:focus {
-    border-color: #73d0da;
-    color: #73d0da;
+    border-color: #da7373;
+    color: #da7373;
     text-decoration: none;
 }
 .read-more-btn {
@@ -581,8 +582,7 @@ Hero
     position: relative;
     padding: 60px 0 60px 0;
     min-height: 800px;
-    background: rgb(40, 70, 102) url('../img/hero-01.jpg') no-repeat center center;
-    background-size: cover;
+    background:transparent;
     color: #fff;
 }
 .hero h1 {
@@ -629,11 +629,11 @@ section.video a {
     color: #323a45
 }
 section.video a:hover, section.video a:focus {
-    color: #73d0da;
+    color: #da7373;
     text-decoration: none;
 }
 section.video a:hover i, section.video a:focus i {
-    color: #73d0da
+    color: #da7373
 }
 
 /* ==========================================================================
@@ -742,8 +742,14 @@ Features List
 }
 .feature-icon i {
     color: #4e9ba3
+    margin-top: -1px;
 }
-
+section {
+    box-shadow: 0 4px 5px rgba(0,0,0,.5);
+}
+section.parallax {
+    box-shadow: none;
+}
 /* ==========================================================================
 Blockquote
 ========================================================================== */
@@ -889,7 +895,7 @@ Screenshots
     color: #fff
 }
 .screenshots figcaption a:hover, .screenshots figcaption a:focus {
-    color: #73d0da
+    color: #da7373
 }
 .screenshots figure:hover figcaption, .screenshots figure:focus figcaption {
     opacity: 1
@@ -932,16 +938,20 @@ Download Now
 ========================================================================== */
 .download, .quotes {
     padding: 120px 0;
-    background-color: #3f6184;
+    
 }
+
 .download h1, .quotes h1 {
     margin: 0 0 15px 0;
     color: #fff;
     font-weight: 400;
     font-size: 40px;
+        text-shadow: 0 0 15px #000;
+        position: relative;
 }
-.quotes {
- 
+.download, .quotes {    background-color: rgba(0,0,0,.4);}
+.quotes h1 {
+    text-shadow: 0 0 15px #000;
 }
 .quotes h1:before {
     content: open-quote;
@@ -1036,8 +1046,8 @@ Nav Overlay
     transition: all 300ms ease-in-out;
 }
 .overlay ul li a:hover, .overlay ul li a:focus {
-    border-color: #73d0da;
-    color: #73d0da;
+    border-color: #da7373;
+    color: #da7373;
 }
 
 /* Effects */
