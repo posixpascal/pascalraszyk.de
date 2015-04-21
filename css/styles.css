@@ -449,10 +449,10 @@ p {
     line-height: 25px;
 }
 a {
-    color: #da7373
+    color: #4cb8c4
 }
 a:hover, a:focus {
-    color: #da7373;
+    color: #4cb8c4;
     text-decoration: none;
 }
 .texture-overlay {
@@ -478,7 +478,7 @@ Buttons
     font-size: 16px;
 }
 .use-btn:hover, .use-btn:focus {
-    background-color: #da7373;
+    background-color: #4cb8c4;
     color: #fff;
     text-decoration: none;
 }
@@ -491,8 +491,8 @@ Buttons
     font-size: 16px;
 }
 .learn-btn:hover, .download-btn:hover, .learn-btn:focus, .download-btn:focus {
-    border-color: #da7373;
-    color: #da7373;
+    border-color: #4cb8c4;
+    color: #4cb8c4;
     text-decoration: none;
 }
 .read-more-btn {
@@ -514,6 +514,21 @@ Buttons
 /* ==========================================================================
 Navigation
 ========================================================================== */
+.navigation-bar {
+    padding-top: 25px;
+    background: transparent;
+
+}
+
+.navigation-bar.just-sticky {
+    left: 0;
+    width: 100%;
+    padding: 25px;
+    margin: 0;
+    background: #4cb8c4;
+
+}
+
 .nav-toggle {
     position: absolute;
     top: 0;
@@ -646,11 +661,11 @@ section.video a {
     color: #323a45
 }
 section.video a:hover, section.video a:focus {
-    color: #da7373;
+    color: #4cb8c4;
     text-decoration: none;
 }
 section.video a:hover i, section.video a:focus i {
-    color: #da7373
+    color: #4cb8c4
 }
 
 /* ==========================================================================
@@ -912,7 +927,7 @@ Screenshots
     color: #fff
 }
 .screenshots figcaption a:hover, .screenshots figcaption a:focus {
-    color: #da7373
+    color: #4cb8c4
 }
 .screenshots figure:hover figcaption, .screenshots figure:focus figcaption {
     opacity: 1
@@ -1063,8 +1078,8 @@ Nav Overlay
     transition: all 300ms ease-in-out;
 }
 .overlay ul li a:hover, .overlay ul li a:focus {
-    border-color: #da7373;
-    color: #da7373;
+    border-color: #4cb8c4;
+    color: #4cb8c4;
 }
 
 /* Effects */
@@ -1125,4 +1140,11 @@ Waypoints
 .delay-1s {
     -webkit-animation-delay: 1s;
     animation-delay: 1s;
+}
+.parallax.hero {
+    padding-top: 35px;
+}
+
+.navicon {
+    margin-top: 13px;
 }
