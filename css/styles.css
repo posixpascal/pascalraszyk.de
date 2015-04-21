@@ -610,14 +610,15 @@ header i {
 Video
 ========================================================================== */
 .section-red {
-    background: #4776e6;
-background: -moz-linear-gradient(-45deg,  #4776e6 0%, #8e54e9 100%);
-background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#4776e6), color-stop(100%,#8e54e9));
-background: -webkit-linear-gradient(-45deg,  #4776e6 0%,#8e54e9 100%);
-background: -o-linear-gradient(-45deg,  #4776e6 0%,#8e54e9 100%);
-background: -ms-linear-gradient(-45deg,  #4776e6 0%,#8e54e9 100%);
-background: linear-gradient(135deg,  #4776e6 0%,#8e54e9 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4776e6', endColorstr='#8e54e9',GradientType=1 );
+background: #4cb8c4;
+background: -moz-linear-gradient(-45deg,  #4cb8c4 0%, #3cd3ad 100%);
+background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#4cb8c4), color-stop(100%,#3cd3ad));
+background: -webkit-linear-gradient(-45deg,  #4cb8c4 0%,#3cd3ad 100%);
+background: -o-linear-gradient(-45deg,  #4cb8c4 0%,#3cd3ad 100%);
+background: -ms-linear-gradient(-45deg,  #4cb8c4 0%,#3cd3ad 100%);
+background: linear-gradient(135deg,  #4cb8c4 0%,#3cd3ad 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4cb8c4', endColorstr='#3cd3ad',GradientType=1 );
+
 
     color: #fff !important;
     padding: 50px;
