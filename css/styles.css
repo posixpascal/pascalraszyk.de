@@ -1148,3 +1148,42 @@ Waypoints
 .navicon {
     margin-top: 13px;
 }
+
+.lisa {
+    background-color: #fff !important;
+}
+.lisa img {
+    max-width: 280px;
+}
+
+.crb {
+    padding: 25px;
+    max-width: 500px;
+    text-align: justify;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.social-media {
+   text-shadow: 0 0 15px #000;
+       color: #fff;
+}
+.social-media a {
+    display: inline-block;
+    color: #fff;
+    -webkit-transition: color linear 0.3s, text-shadow linear 0.3s;
+    transition: color linear 0.3s, text-shadow linear 0.3s;
+
+}
+.social-media a:hover {
+    color: #4cb8c4;
+    text-shadow: 0 0 15px #4cb8c4;
+}
+
+.social-media i{
+    font-size: 68px;
+
+    margin: 65px;
+    margin-bottom: 10px;
+ 
+}

@@ -1,7 +1,7 @@
 ;(function(){
 
 	$(function(){
-		JustSticky('.navigation-bar');
+		//JustSticky('.navigation-bar');
 	});
 
 })();
