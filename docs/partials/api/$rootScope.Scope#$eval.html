@@ -1,0 +1,18 @@
+<h1><code ng:non-bindable="">Scope#$eval</code>
+<div><span class="hint">service in module <code ng:non-bindable="">$rootScope</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="-rootscope-scope-eval-page"><p>Executes the <code>expression</code> on the current scope and returns the result. Any exceptions in
+the expression are propagated (uncaught). This is useful when evaluating Angular
+expressions.</p>
+<h3 id="description_example">Example</h3>
+<pre><code class="lang-js">           var scope = ng.$rootScope.Scope();
+           scope.a = 1;
+           scope.b = 2;
+
+           expect(scope.$eval(&#39;a+b&#39;)).toEqual(3);
+           expect(scope.$eval(function(scope){ return scope.a + scope.b; })).toEqual(3);</code></pre>
+</div></div>
+</div>

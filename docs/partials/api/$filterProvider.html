@@ -1,0 +1,41 @@
+<h1><code ng:non-bindable="">$filterProvider</code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="-filterprovider-page"><p>Filters are just functions which transform input to an output. However filters need to be
+Dependency Injected. To achieve this a filter definition consists of a factory function which is
+annotated with dependencies and is responsible for creating a filter function.</p>
+<pre><code class="lang-js">  // Filter registration
+  function MyModule($provide, $filterProvider) {
+    // create a service to demonstrate injection (not always needed)
+    $provide.value(&#39;greet&#39;, function(name){
+      return &#39;Hello &#39; + name + &#39;!&#39;;
+    });
+
+    // register a filter factory which uses the
+    // greet service to demonstrate DI.
+    $filterProvider.register(&#39;greet&#39;, function(greet){
+      // return the filter function which uses the greet service
+      // to generate salutation
+      return function(text) {
+        // filters need to be forgiving so check input validity
+        return text &amp;&amp; greet(text) || text;
+      };
+    });
+  }</code></pre>
+<p>The filter function is registered with the <code>$injector</code> under the filter name suffix with
+<code>Filter</code>.</p>
+<pre><code class="lang-js">  it(&#39;should be the same instance&#39;, inject(
+    function($filterProvider) {
+      $filterProvider.register(&#39;reverse&#39;, function(){
+        return ...;
+      });
+    },
+    function($filter, reverseFilter) {
+      expect($filter(&#39;reverse&#39;)).toBe(reverseFilter);
+    });</code></pre>
+<p>For more information about how angular filters work, and how to create your own filters, see
+<a href="#/guide/filter">Filters</a> in the Angular Developer Guide.</p>
+</div></div>
+</div>

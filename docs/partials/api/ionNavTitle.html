@@ -1,0 +1,30 @@
+<h1><code ng:non-bindable="">ionNavTitle</code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="ionnavtitle-page"><p>The nav title directive replaces an <a href="#/api/ionic.directive:ionNavBar">ionic.directive:ionNavBar</a> title text with
+custom HTML from within an <a href="#/api/ionic.directive:ionView">ionic.directive:ionView</a> template. This gives each
+view the ability to specify its own custom title element, such as an image or any HTML,
+rather than being text-only. Alternatively, text-only titles can be updated using the
+<code>view-title</code> <a href="#/api/ionic.directive:ionView">ionic.directive:ionView</a> attribute.</p>
+<p>Note that <code>ion-nav-title</code> must be an immediate descendant of the <code>ion-view</code> or
+<code>ion-nav-bar</code> element (basically don&#39;t wrap it in another div).</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage"><pre class="prettyprint linenums">```html
+&lt;ion-nav-bar&gt;
+&lt;/ion-nav-bar&gt;
+&lt;ion-nav-view&gt;
+  &lt;ion-view&gt;
+    &lt;ion-nav-title&gt;
+      &lt;img src="logo.svg"&gt;
+    &lt;/ion-nav-title&gt;
+    &lt;ion-content&gt;
+      Some super content here!
+    &lt;/ion-content&gt;
+  &lt;/ion-view&gt;
+&lt;/ion-nav-view&gt;
+```</pre>
+</div>
+</div>

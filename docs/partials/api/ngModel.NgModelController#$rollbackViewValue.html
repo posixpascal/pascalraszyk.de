@@ -1,0 +1,56 @@
+<h1><code ng:non-bindable="">NgModelController#$rollbackViewValue</code>
+<div><span class="hint">service in module <code ng:non-bindable="">ngModel</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="ngmodel-ngmodelcontroller-rollbackviewvalue-page"><p>Cancel an update and reset the input element&#39;s value to prevent an update to the <code>$modelValue</code>,
+which may be caused by a pending debounced event or because the input is waiting for a some
+future event.</p>
+<p>If you have an input that uses <code>ng-model-options</code> to set up debounced events or events such
+as blur you can have a situation where there is a period when the <code>$viewValue</code>
+is out of synch with the ngModel&#39;s <code>$modelValue</code>.</p>
+<p>In this case, you can run into difficulties if you try to update the ngModel&#39;s <code>$modelValue</code>
+programmatically before these debounced/future events have resolved/occurred, because Angular&#39;s
+dirty checking mechanism is not able to tell whether the model has actually changed or not.</p>
+<p>The <code>$rollbackViewValue()</code> method should be called before programmatically changing the model of an
+input which may have such events pending. This is important in order to make sure that the
+input field will be updated with the new model value and any pending operations are cancelled.</p>
+<example name="ng-model-cancel-update" module="cancel-update-example">
+  <file name="app.js">
+    angular.module(&#39;cancel-update-example&#39;, [])
+
+    .controller(&#39;CancelUpdateController&#39;, [&#39;$scope&#39;, function($scope) {
+      $scope.resetWithCancel = function(e) {
+        if (e.keyCode == 27) {
+          $scope.myForm.myInput1.$rollbackViewValue();
+          $scope.myValue = &#39;&#39;;
+        }
+      };
+      $scope.resetWithoutCancel = function(e) {
+        if (e.keyCode == 27) {
+          $scope.myValue = &#39;&#39;;
+        }
+      };
+    }]);
+  </file>
+  <file name="index.html">
+    <div ng-controller="CancelUpdateController">
+      <p>Try typing something in each input.  See that the model only updates when you
+         blur off the input.
+       </p>
+       <p>Now see what happens if you start typing then press the Escape key</p>
+
+      <form name="myForm" ng-model-options="{ updateOn: 'blur' }">
+        <p>With $rollbackViewValue()</p>
+        <input name="myInput1" ng-model="myValue" ng-keydown="resetWithCancel($event)"><br/>
+        myValue: &quot;{{ myValue }}&quot;
+
+        <p>Without $rollbackViewValue()</p>
+        <input name="myInput2" ng-model="myValue" ng-keydown="resetWithoutCancel($event)"><br/>
+        myValue: &quot;{{ myValue }}&quot;
+      </form>
+    </div>
+  </file>
+</example></div></div>
+</div>

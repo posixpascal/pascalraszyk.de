@@ -1,0 +1,17 @@
+<h1><code ng:non-bindable="">$ionicBackdrop</code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="-ionicbackdrop-page"><p>Shows and hides a backdrop over the UI.  Appears behind popups, loading,
+and other overlays.</p>
+<p>Often, multiple UI components require a backdrop, but only one backdrop is
+ever needed in the DOM at a time.</p>
+<p>Therefore, each component that requires the backdrop to be shown calls
+<code>$ionicBackdrop.retain()</code> when it wants the backdrop, then <code>$ionicBackdrop.release()</code>
+when it is done with the backdrop.</p>
+<p>For each time <code>retain</code> is called, the backdrop will be shown until <code>release</code> is called.</p>
+<p>For example, if <code>retain</code> is called three times, the backdrop will be shown until <code>release</code>
+is called three times.</p>
+</div></div>
+</div>

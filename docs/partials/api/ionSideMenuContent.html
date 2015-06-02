@@ -1,0 +1,24 @@
+<h1><code ng:non-bindable="">ionSideMenuContent</code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="ionsidemenucontent-page"><p>A container for the main visible content, sibling to one or more
+<a href="#/api/ionic.directive:ionSideMenu">ionic.directive:ionSideMenu</a> directives.</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage"><pre class="prettyprint linenums">```html
+&lt;ion-side-menu-content
+  edge-drag-threshold="true"
+  drag-content="true"&gt;
+&lt;/ion-side-menu-content&gt;
+```
+For a complete side menu example, see the
+{@link ionic.directive:ionSideMenus} documentation.</pre>
+<h4 id="usage_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>drag-content <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="ionsidemenucontent-page"><p>Whether the content can be dragged. Default true.</p>
+</div></td></tr><tr><td>edge-drag-threshold <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-boolean">boolean</a><a href="" class="label type-hint type-hint-number">number</a></td><td><div class="ionsidemenucontent-page"><p>Whether the content drag can only start if it is below a certain threshold distance from the edge of the screen.  Default false. Accepts three types of values:
+- If a non-zero number is given, that many pixels is used as the maximum allowed distance from the edge that starts dragging the side menu.
+- If true is given, the default number of pixels (25) is used as the maximum allowed distance.
+- If false or 0 is given, the edge drag threshold is disabled, and dragging from anywhere on the content is allowed.</p>
+</div></td></tr></tbody></table></div>
+</div>

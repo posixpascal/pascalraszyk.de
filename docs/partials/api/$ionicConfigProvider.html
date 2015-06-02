@@ -1,0 +1,25 @@
+<h1><code ng:non-bindable="">$ionicConfigProvider</code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="-ionicconfigprovider-page"><p>Ionic automatically takes platform configurations into account to adjust things like what
+transition style to use and whether tab icons should show on the top or bottom. For example,
+iOS will move forward by transitioning the entering view from right to center and the leaving
+view from center to left. However, Android will transition with the entering view going from
+bottom to center, covering the previous view, which remains stationary. It should be noted
+that when a platform is not iOS or Android, then it&#39;ll default to iOS. So if you are
+developing on a desktop browser, it&#39;s going to take on iOS default configs.</p>
+<p>These configs can be changed using the <code>$ionicConfigProvider</code> during the configuration phase
+of your app. Additionally, <code>$ionicConfig</code> can also set and get config values during the run
+phase and within the app itself.</p>
+<p>By default, all base config variables are set to <code>&#39;platform&#39;</code>, which means it&#39;ll take on the
+default config of the platform on which it&#39;s running. Config variables can be set at this
+level so all platforms follow the same setting, rather than its platform config.
+The following code would set the same config variable for all platforms:</p>
+<pre><code class="lang-js">$ionicConfigProvider.views.maxCache(10);</code></pre>
+<p>Additionally, each platform can have it&#39;s own config within the <code>$ionicConfigProvider.platform</code>
+property. The config below would only apply to Android devices.</p>
+<pre><code class="lang-js">$ionicConfigProvider.platform.android.views.maxCache(5);</code></pre>
+</div></div>
+</div>

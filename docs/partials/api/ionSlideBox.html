@@ -1,0 +1,33 @@
+<h1><code ng:non-bindable="">ionSlideBox</code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="ionslidebox-page"><p>The Slide Box is a multi-page container where each page can be swiped or dragged between:</p>
+<p><img src="http://ionicframework.com.s3.amazonaws.com/docs/controllers/slideBox.gif" alt="SlideBox"></p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage"><pre class="prettyprint linenums">```html
+&lt;ion-slide-box on-slide-changed="slideHasChanged($index)"&gt;
+  &lt;ion-slide&gt;
+    &lt;div class="box blue"&gt;&lt;h1&gt;BLUE&lt;/h1&gt;&lt;/div&gt;
+  &lt;/ion-slide&gt;
+  &lt;ion-slide&gt;
+    &lt;div class="box yellow"&gt;&lt;h1&gt;YELLOW&lt;/h1&gt;&lt;/div&gt;
+  &lt;/ion-slide&gt;
+  &lt;ion-slide&gt;
+    &lt;div class="box pink"&gt;&lt;h1&gt;PINK&lt;/h1&gt;&lt;/div&gt;
+  &lt;/ion-slide&gt;
+&lt;/ion-slide-box&gt;
+```</pre>
+<h4 id="usage_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>delegate-handle <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="ionslidebox-page"><p>The handle used to identify this slideBox
+with <a href="#/api/ionic.service:$ionicSlideBoxDelegate">ionic.service:$ionicSlideBoxDelegate</a>.</p>
+</div></td></tr><tr><td>does-continue <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="ionslidebox-page"><p>Whether the slide box should loop.</p>
+</div></td></tr><tr><td>auto-play <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="ionslidebox-page"><p>Whether the slide box should automatically slide. Default true if does-continue is true.</p>
+</div></td></tr><tr><td>slide-interval <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-number">number</a></td><td><div class="ionslidebox-page"><p>How many milliseconds to wait to change slides (if does-continue is true). Defaults to 4000.</p>
+</div></td></tr><tr><td>show-pager <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="ionslidebox-page"><p>Whether a pager should be shown for this slide box. Accepts expressions via <code>show-pager=&quot;{{shouldShow()}}&quot;</code>.</p>
+</div></td></tr><tr><td>pager-click <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-expression">expression</a></td><td><div class="ionslidebox-page"><p>Expression to call when a pager is clicked (if show-pager is true). Is passed the &#39;index&#39; variable.</p>
+</div></td></tr><tr><td>on-slide-changed <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-expression">expression</a></td><td><div class="ionslidebox-page"><p>Expression called whenever the slide is changed.  Is passed an &#39;$index&#39; variable.</p>
+</div></td></tr><tr><td>active-slide <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-expression">expression</a></td><td><div class="ionslidebox-page"><p>Model to bind the current slide to.</p>
+</div></td></tr></tbody></table></div>
+</div>

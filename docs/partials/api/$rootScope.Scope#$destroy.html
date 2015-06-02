@@ -1,0 +1,20 @@
+<h1><code ng:non-bindable="">Scope#$destroy</code>
+<div><span class="hint">service in module <code ng:non-bindable="">$rootScope</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="-rootscope-scope-destroy-page"><p>Removes the current scope (and all of its children) from the parent scope. Removal implies
+that calls to <a href="#/api/ng.$rootScope.Scope#$digest"><code>$digest()</code></a> will no longer
+propagate to the current scope and its children. Removal also implies that the current
+scope is eligible for garbage collection.</p>
+<p>The <code>$destroy()</code> is usually used by directives such as
+<a href="#/api/ng.directive:ngRepeat"><code>ngRepeat</code></a> for managing the
+unrolling of the loop.</p>
+<p>Just before a scope is destroyed, a <code>$destroy</code> event is broadcasted on this scope.
+Application code can register a <code>$destroy</code> event handler that will give it a chance to
+perform any necessary cleanup.</p>
+<p>Note that, in AngularJS, there is also a <code>$destroy</code> jQuery event, which can be used to
+clean up DOM bindings before an element is removed from the DOM.</p>
+</div></div>
+</div>

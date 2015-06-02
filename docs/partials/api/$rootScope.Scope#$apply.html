@@ -1,0 +1,33 @@
+<h1><code ng:non-bindable="">Scope#$apply</code>
+<div><span class="hint">service in module <code ng:non-bindable="">$rootScope</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="-rootscope-scope-apply-page"><p><code>$apply()</code> is used to execute an expression in angular from outside of the angular
+framework. (For example from browser DOM events, setTimeout, XHR or third party libraries).
+Because we are calling into the angular framework we need to perform proper scope life
+cycle of <a href="#/api/ng.$exceptionHandler"><code>exception handling</code></a>,
+<a href="#/api/ng.$rootScope.Scope#$digest"><code>executing watches</code></a>.</p>
+<h4 id="description_life-cycle">Life cycle</h4>
+<h3 id="description_pseudo-code-of">Pseudo-Code of <code>$apply()</code></h3>
+<pre><code class="lang-js">           function $apply(expr) {
+             try {
+               return $eval(expr);
+             } catch (e) {
+               $exceptionHandler(e);
+             } finally {
+               $root.$digest();
+             }
+           }</code></pre>
+<p>Scope&#39;s <code>$apply()</code> method transitions through the following stages:</p>
+<ol>
+<li>The <a href="#/guide/expression">expression</a> is executed using the
+<a href="#/api/ng.$rootScope.Scope#$eval"><code>$eval()</code></a> method.</li>
+<li>Any exceptions from the execution of the expression are forwarded to the
+<a href="#/api/ng.$exceptionHandler"><code>$exceptionHandler</code></a> service.</li>
+<li>The <a href="#/api/ng.$rootScope.Scope#$watch"><code>watch</code></a> listeners are fired immediately after the
+expression was executed using the <a href="#/api/ng.$rootScope.Scope#$digest"><code>$digest()</code></a> method.</li>
+</ol>
+</div></div>
+</div>

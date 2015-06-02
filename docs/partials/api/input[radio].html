@@ -1,0 +1,43 @@
+<h1><code ng:non-bindable="">input[radio]</code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="input-radio--page"><p>HTML radio button.</p>
+</div></div>
+<h2 id="example">Example</h2>
+<div class="example"><div class="input-radio--page"><example name="radio-input-directive" module="radioExample">
+<file name="index.html">
+ <script>
+   angular.module(&#39;radioExample&#39;, [])
+     .controller(&#39;ExampleController&#39;, [&#39;$scope&#39;, function($scope) {
+       $scope.color = {
+         name: &#39;blue&#39;
+       };
+       $scope.specialValue = {
+         &quot;id&quot;: &quot;12345&quot;,
+         &quot;value&quot;: &quot;green&quot;
+       };
+     }]);
+ </script>
+ <form name="myForm" ng-controller="ExampleController">
+   <input type="radio" ng-model="color.name" value="red">  Red <br/>
+   <input type="radio" ng-model="color.name" ng-value="specialValue"> Green <br/>
+   <input type="radio" ng-model="color.name" value="blue"> Blue <br/>
+   <tt>color = {{color.name | json}}</tt><br/>
+  </form>
+  Note that <code>ng-value=&quot;specialValue&quot;</code> sets radio item&#39;s value to be the value of <code>$scope.specialValue</code>.
+</file>
+<file name="protractor.js" type="protractor">
+  it(&#39;should change state&#39;, function() {
+    var color = element(by.binding(&#39;color.name&#39;));
+
+    expect(color.getText()).toContain(&#39;blue&#39;);
+
+    element.all(by.model(&#39;color.name&#39;)).get(0).click();
+
+    expect(color.getText()).toContain(&#39;red&#39;);
+  });
+</file>
+</example></div></div>
+</div>

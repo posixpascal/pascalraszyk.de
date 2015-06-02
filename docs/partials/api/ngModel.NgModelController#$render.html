@@ -1,0 +1,21 @@
+<h1><code ng:non-bindable="">NgModelController#$render</code>
+<div><span class="hint">service in module <code ng:non-bindable="">ngModel</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="ngmodel-ngmodelcontroller-render-page"><p>Called when the view needs to be updated. It is expected that the user of the ng-model
+directive will implement this method.</p>
+<p>The <code>$render()</code> method is invoked in the following situations:</p>
+<ul>
+<li><code>$rollbackViewValue()</code> is called.  If we are rolling back the view value to the last
+committed value then <code>$render()</code> is called to update the input control.</li>
+<li>The value referenced by <code>ng-model</code> is changed programmatically and both the <code>$modelValue</code> and
+the <code>$viewValue</code> are different to last time.</li>
+</ul>
+<p>Since <code>ng-model</code> does not do a deep watch, <code>$render()</code> is only invoked if the values of
+<code>$modelValue</code> and <code>$viewValue</code> are actually different to their previous value. If <code>$modelValue</code>
+or <code>$viewValue</code> are objects (rather than a string or number) then <code>$render()</code> will not be
+invoked if you only change a property on the objects.</p>
+</div></div>
+</div>

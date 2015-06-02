@@ -1,0 +1,24 @@
+<h1><code ng:non-bindable="">$provide#factory</code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="-provide-factory-page"><p>Register a <strong>service factory</strong>, which will be called to return the service instance.
+This is short for registering a service where its provider consists of only a <code>$get</code> property,
+which is the given service factory function.
+You should use <a href="#/api/auto.$provide#factory">$provide.factory(getFn)</a> if you do not need to
+configure your service in a provider.</p>
+</div></div>
+<h2 id="example">Example</h2>
+<div class="example"><div class="-provide-factory-page"><p>Here is an example of registering a service</p>
+<pre><code class="lang-js">  $provide.factory(&#39;ping&#39;, [&#39;$http&#39;, function($http) {
+    return function ping() {
+      return $http.send(&#39;/ping&#39;);
+    };
+  }]);</code></pre>
+<p>You would then inject and use this service like this:</p>
+<pre><code class="lang-js">  someModule.controller(&#39;Ctrl&#39;, [&#39;ping&#39;, function(ping) {
+    ping();
+  }]);</code></pre>
+</div></div>
+</div>

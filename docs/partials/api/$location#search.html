@@ -1,0 +1,17 @@
+<h1><code ng:non-bindable="">$location#search</code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="-location-search-page"><p>This method is getter / setter.</p>
+<p>Return search part (as object) of current url when called without any parameter.</p>
+<p>Change search part when called with parameter and return <code>$location</code>.</p>
+<pre><code class="lang-js">// given url http://example.com/#/some/path?foo=bar&amp;baz=xoxo
+var searchObject = $location.search();
+// =&gt; {foo: &#39;bar&#39;, baz: &#39;xoxo&#39;}
+
+// set foo to &#39;yipee&#39;
+$location.search(&#39;foo&#39;, &#39;yipee&#39;);
+// $location.search() =&gt; {foo: &#39;yipee&#39;, baz: &#39;xoxo&#39;}</code></pre>
+</div></div>
+</div>

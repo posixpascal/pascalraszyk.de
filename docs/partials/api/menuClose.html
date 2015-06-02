@@ -1,0 +1,23 @@
+<h1><code ng:non-bindable="">menuClose</code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="menuclose-page"><p><code>menu-close</code> is an attribute directive that closes a currently opened side menu.
+Note that by default, navigation transitions will not animate between views when
+the menu is open. Additionally, this directive will reset the entering view&#39;s
+history stack, making the new page the root of the history stack. This is done
+to replicate the user experience seen in most side menu implementations, which is
+to not show the back button at the root of the stack and show only the
+menu button. We recommend that you also use the <code>enable-menu-with-back-views=&quot;false&quot;</code>
+<a href="#/api/ionic.directive:ionSideMenus">ionic.directive:ionSideMenus</a> attribute when using the menuClose directive.</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage"><pre class="prettyprint linenums">Below is an example of a link within a side menu. Tapping this link would
+automatically close the currently opened menu.
+
+```html
+&lt;a menu-close href="#/home" class="item"&gt;Home&lt;/a&gt;
+```</pre>
+</div>
+</div>

@@ -1,0 +1,76 @@
+<h1><code ng:non-bindable="">input[date]</code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="input-date--page"><p>Input with date validation and transformation. In browsers that do not yet support
+the HTML5 date input, a text element will be used. In that case, text must be entered in a valid ISO-8601
+date format (yyyy-MM-dd), for example: <code>2009-01-06</code>. Since many
+modern browsers do not yet support this input type, it is important to provide cues to users on the
+expected input format via a placeholder or label.</p>
+<p>The model must always be a Date object, otherwise Angular will throw an error.
+Invalid <code>Date</code> objects (dates whose <code>getTime()</code> is <code>NaN</code>) will be rendered as an empty string.</p>
+<p>The timezone to be used to read/write the <code>Date</code> instance in the model can be defined using
+<a href="#/api/ng.directive:ngModelOptions"><code>ngModelOptions</code></a>. By default, this is the timezone of the browser.</p>
+</div></div>
+<h2 id="example">Example</h2>
+<div class="example"><div class="input-date--page"><example name="date-input-directive" module="dateInputExample">
+<file name="index.html">
+  <script>
+     angular.module(&#39;dateInputExample&#39;, [])
+       .controller(&#39;DateController&#39;, [&#39;$scope&#39;, function($scope) {
+         $scope.example = {
+           value: new Date(2013, 9, 22)
+         };
+       }]);
+  </script>
+  <form name="myForm" ng-controller="DateController as dateCtrl">
+     Pick a date in 2013:
+     <input type="date" id="exampleInput" name="input" ng-model="example.value"
+         placeholder="yyyy-MM-dd" min="2013-01-01" max="2013-12-31" required />
+     <span class="error" ng-show="myForm.input.$error.required">
+         Required!</span>
+     <span class="error" ng-show="myForm.input.$error.date">
+         Not a valid date!</span>
+      <tt>value = {{example.value | date: &quot;yyyy-MM-dd&quot;}}</tt><br/>
+      <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
+      <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
+      <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
+      <tt>myForm.$error.required = {{!!myForm.$error.required}}</tt><br/>
+  </form>
+</file>
+<file name="protractor.js" type="protractor">
+   var value = element(by.binding(&#39;example.value | date: &quot;yyyy-MM-dd&quot;&#39;));
+   var valid = element(by.binding(&#39;myForm.input.$valid&#39;));
+   var input = element(by.model(&#39;example.value&#39;));
+
+   // currently protractor/webdriver does not support
+   // sending keys to all known HTML5 input controls
+   // for various browsers (see <a href="https://github.com/angular/protractor/issues/562">https://github.com/angular/protractor/issues/562</a>).
+   function setInput(val) {
+     // set the value of the element and force validation.
+     var scr = &quot;var ipt = document.getElementById(&#39;exampleInput&#39;); &quot; +
+     &quot;ipt.value = &#39;&quot; + val + &quot;&#39;;&quot; +
+     &quot;angular.element(ipt).scope().$apply(function(s) { s.myForm[ipt.name].$setViewValue(&#39;&quot; + val + &quot;&#39;); });&quot;;
+     browser.executeScript(scr);
+   }
+
+   it(&#39;should initialize to model&#39;, function() {
+     expect(value.getText()).toContain(&#39;2013-10-22&#39;);
+     expect(valid.getText()).toContain(&#39;myForm.input.$valid = true&#39;);
+   });
+
+   it(&#39;should be invalid if empty&#39;, function() {
+     setInput(&#39;&#39;);
+     expect(value.getText()).toEqual(&#39;value =&#39;);
+     expect(valid.getText()).toContain(&#39;myForm.input.$valid = false&#39;);
+   });
+
+   it(&#39;should be invalid if over max&#39;, function() {
+     setInput(&#39;2015-01-01&#39;);
+     expect(value.getText()).toContain(&#39;&#39;);
+     expect(valid.getText()).toContain(&#39;myForm.input.$valid = false&#39;);
+   });
+</file>
+</example></div></div>
+</div>

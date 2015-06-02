@@ -1,0 +1,44 @@
+<h1><code ng:non-bindable="">input[checkbox]</code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="input-checkbox--page"><p>HTML checkbox.</p>
+</div></div>
+<h2 id="example">Example</h2>
+<div class="example"><div class="input-checkbox--page"><example name="checkbox-input-directive" module="checkboxExample">
+<file name="index.html">
+ <script>
+   angular.module(&#39;checkboxExample&#39;, [])
+     .controller(&#39;ExampleController&#39;, [&#39;$scope&#39;, function($scope) {
+       $scope.checkboxModel = {
+        value1 : true,
+        value2 : &#39;YES&#39;
+      };
+     }]);
+ </script>
+ <form name="myForm" ng-controller="ExampleController">
+   Value1: <input type="checkbox" ng-model="checkboxModel.value1"> <br/>
+   Value2: <input type="checkbox" ng-model="checkboxModel.value2"
+                  ng-true-value="'YES'" ng-false-value="'NO'"> <br/>
+   <tt>value1 = {{checkboxModel.value1}}</tt><br/>
+   <tt>value2 = {{checkboxModel.value2}}</tt><br/>
+  </form>
+</file>
+<file name="protractor.js" type="protractor">
+  it(&#39;should change state&#39;, function() {
+    var value1 = element(by.binding(&#39;checkboxModel.value1&#39;));
+    var value2 = element(by.binding(&#39;checkboxModel.value2&#39;));
+
+    expect(value1.getText()).toContain(&#39;true&#39;);
+    expect(value2.getText()).toContain(&#39;YES&#39;);
+
+    element(by.model(&#39;checkboxModel.value1&#39;)).click();
+    element(by.model(&#39;checkboxModel.value2&#39;)).click();
+
+    expect(value1.getText()).toContain(&#39;false&#39;);
+    expect(value2.getText()).toContain(&#39;NO&#39;);
+  });
+</file>
+</example></div></div>
+</div>

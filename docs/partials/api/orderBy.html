@@ -1,0 +1,85 @@
+<h1><code ng:non-bindable="">orderBy</code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="orderby-page"><p>Orders a specified <code>array</code> by the <code>expression</code> predicate. It is ordered alphabetically
+for strings and numerically for numbers. Note: if you notice numbers are not being sorted
+correctly, make sure they are actually being saved as numbers and not strings.</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage"><h3 id="usage_in-html-template-binding">In HTML Template Binding</h3>
+<div class="in-html-template-binding"><code ng:non-bindable=""><span>{{</span> orderBy_expression | orderBy[:expression][:reverse] <span>}}</span></code>
+</div>
+<h3 id="usage_in-javascript">In JavaScript</h3>
+<div class="in-javascript"><code ng:non-bindable="">$filter('orderBy')(array[, expression][, reverse])</code>
+</div>
+<h4 id="usage_in-javascript_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>array</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="orderby-page"><p>The array to sort.</p>
+</div></td></tr><tr><td>expression <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function(*)</a><a href="" class="label type-hint type-hint-string">string</a><a href="" class="label type-hint type-hint-array">Array.&lt;(function(*)|string)&gt;</a></td><td><div class="orderby-page"><p>A predicate to be
+used by the comparator to determine the order of elements.</p>
+<p>Can be one of:</p>
+<ul>
+<li><code>function</code>: Getter function. The result of this function will be sorted using the
+<code>&lt;</code>, <code>=</code>, <code>&gt;</code> operator.</li>
+<li><code>string</code>: An Angular expression. The result of this expression is used to compare elements
+(for example <code>name</code> to sort by a property called <code>name</code> or <code>name.substr(0, 3)</code> to sort by
+3 first characters of a property called <code>name</code>). The result of a constant expression
+is interpreted as a property name to be used in comparisons (for example <code>&quot;special name&quot;</code>
+to sort object by the value of their <code>special name</code> property). An expression can be
+optionally prefixed with <code>+</code> or <code>-</code> to control ascending or descending sort order
+(for example, <code>+name</code> or <code>-name</code>). If no property is provided, (e.g. <code>&#39;+&#39;</code>) then the array
+element itself is used to compare where sorting.</li>
+<li><code>Array</code>: An array of function or string predicates. The first predicate in the array
+is used for sorting, but when two items are equivalent, the next predicate is used.</li>
+</ul>
+<p>If the predicate is missing or empty then it defaults to <code>&#39;+&#39;</code>.</p>
+</div></td></tr><tr><td>reverse <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="orderby-page"><p>Reverse the order of the array.</p>
+</div></td></tr></tbody></table><h4 id="usage_in-javascript_returns">Returns</h4><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="orderby-page"><p>Sorted copy of the source array.</p>
+</div></td></tr></table></div>
+<h2 id="example">Example</h2>
+<div class="example"><div class="orderby-page"><h4 id="example_source">Source</h4>
+<div source-edit="orderByExample" source-edit-deps="angular.js script.js" source-edit-html="index.html-25" source-edit-css="" source-edit-js="script.js-26" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div class="tabbable"><div class="tab-pane" title="index.html">
+<pre class="prettyprint linenums" ng-set-text="index.html-25" ng-html-wrap-loaded="orderByExample angular.js script.js"></pre>
+<script type="text/ng-template" id="index.html-25">
+  <div ng-controller="ExampleController">
+    <table class="friend">
+      <tr>
+        <th><a href="" ng-click="reverse=false;order('name', false)">Name</a>
+          (<a href="" ng-click="order('-name',false)">^</a>)</th>
+        <th><a href="" ng-click="reverse=!reverse;order('phone', reverse)">Phone Number</a></th>
+        <th><a href="" ng-click="reverse=!reverse;order('age',reverse)">Age</a></th>
+      </tr>
+      <tr ng-repeat="friend in friends">
+        <td>{{friend.name}}</td>
+        <td>{{friend.phone}}</td>
+        <td>{{friend.age}}</td>
+      </tr>
+    </table>
+  </div>
+</script>
+</div>
+<div class="tab-pane" title="script.js">
+<pre class="prettyprint linenums" ng-set-text="script.js-26"></pre>
+<script type="text/ng-template" id="script.js-26">
+  angular.module('orderByExample', [])
+    .controller('ExampleController', ['$scope', '$filter', function($scope, $filter) {
+      var orderBy = $filter('orderBy');
+      $scope.friends = [
+        { name: 'John',    phone: '555-1212',    age: 10 },
+        { name: 'Mary',    phone: '555-9876',    age: 19 },
+        { name: 'Mike',    phone: '555-4321',    age: 21 },
+        { name: 'Adam',    phone: '555-5678',    age: 35 },
+        { name: 'Julie',   phone: '555-8765',    age: 29 }
+      ];
+      $scope.order = function(predicate, reverse) {
+        $scope.friends = orderBy($scope.friends, predicate, reverse);
+      };
+      $scope.order('-age',false);
+    }]);
+</script>
+</div>
+</div><h4 id="example_demo">Demo</h4>
+<div class="well doc-example-live animate-container" ng-embed-app="orderByExample" ng-set-html="index.html-25" ng-eval-javascript="script.js-26"></div>
+</div></div>
+</div>

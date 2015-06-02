@@ -1,0 +1,24 @@
+<h1><code ng:non-bindable="">$ionicPlatform#registerBackButtonAction</code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="-ionicplatform-registerbackbuttonaction-page"><p>Register a hardware back button action. Only one action will execute
+when the back button is clicked, so this method decides which of
+the registered back button actions has the highest priority.</p>
+<p>For example, if an actionsheet is showing, the back button should
+close the actionsheet, but it should not also go back a page view
+or close a modal which may be open.</p>
+<p>The priorities for the existing back button hooks are as follows:
+  Return to previous view = 100
+  Close side menu = 150
+  Dismiss modal = 200
+  Close action sheet = 300
+  Dismiss popup = 400
+  Dismiss loading overlay = 500</p>
+<p>Your back button action will override each of the above actions
+whose priority is less than the priority you provide. For example,
+an action assigned a priority of 101 will override the &#39;return to
+previous view&#39; action, but not any of the other actions.</p>
+</div></div>
+</div>

@@ -1,0 +1,25 @@
+<h1><code ng:non-bindable="">$animateProvider#register</code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="-animateprovider-register-page"><p>Registers a new injectable animation factory function. The factory function produces the
+animation object which contains callback functions for each event that is expected to be
+animated.</p>
+<ul>
+<li><code>eventFn</code>: <code>function(Element, doneFunction)</code> The element to animate, the <code>doneFunction</code>
+must be called once the element animation is complete. If a function is returned then the
+animation service will use this function to cancel the animation whenever a cancel event is
+triggered.</li>
+</ul>
+<pre><code class="lang-js">  return {
+    eventFn : function(element, done) {
+      //code to run the animation
+      //once complete, then run done()
+      return function cancellationFunction() {
+        //code to cancel the animation
+      }
+    }
+  }</code></pre>
+</div></div>
+</div>

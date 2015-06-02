@@ -1,0 +1,25 @@
+<h1><code ng:non-bindable="">$provide#value</code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="-provide-value-page"><p>Register a <strong>value service</strong> with the <a href="#/api/auto.$injector">$injector</a>, such as a string, a
+number, an array, an object or a function.  This is short for registering a service where its
+provider&#39;s <code>$get</code> property is a factory function that takes no arguments and returns the <strong>value
+service</strong>.</p>
+<p>Value services are similar to constant services, except that they cannot be injected into a
+module configuration function (see <a href="#/api/angular.Module#config"><code>angular.Module#config</code></a>) but they can be overridden by
+an Angular
+<a href="#/api/auto.$provide#decorator">decorator</a>.</p>
+</div></div>
+<h2 id="example">Example</h2>
+<div class="example"><div class="-provide-value-page"><p>Here are some examples of creating value services.</p>
+<pre><code class="lang-js">  $provide.value(&#39;ADMIN_USER&#39;, &#39;admin&#39;);
+
+  $provide.value(&#39;RoleLookup&#39;, { admin: 0, writer: 1, reader: 2 });
+
+  $provide.value(&#39;halfOf&#39;, function(value) {
+    return value / 2;
+  });</code></pre>
+</div></div>
+</div>

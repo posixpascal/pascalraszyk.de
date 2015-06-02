@@ -1,0 +1,37 @@
+<h1><code ng:non-bindable="">exposeAsideWhen</code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="exposeasidewhen-page"><p>It is common for a tablet application to hide a menu when in portrait mode, but to show the
+same menu on the left side when the tablet is in landscape mode. The <code>exposeAsideWhen</code> attribute
+directive can be used to accomplish a similar interface.</p>
+<p>By default, side menus are hidden underneath its side menu content, and can be opened by either
+swiping the content left or right, or toggling a button to show the side menu. However, by adding the
+<code>exposeAsideWhen</code> attribute directive to an <a href="#/api/ionic.directive:ionSideMenu">ionic.directive:ionSideMenu</a> element directive,
+a side menu can be given instructions on &quot;when&quot; the menu should be exposed (always viewable). For
+example, the <code>expose-aside-when=&quot;large&quot;</code> attribute will keep the side menu hidden when the viewport&#39;s
+width is less than <code>768px</code>, but when the viewport&#39;s width is <code>768px</code> or greater, the menu will then
+always be shown and can no longer be opened or closed like it could when it was hidden for smaller
+viewports.</p>
+<p>Using <code>large</code> as the attribute&#39;s value is a shortcut value to <code>(min-width:768px)</code> since it is
+the most common use-case. However, for added flexibility, any valid media query could be added
+as the value, such as <code>(min-width:600px)</code> or even multiple queries such as
+<code>(min-width:750px) and (max-width:1200px)</code>.</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage"><pre class="prettyprint linenums">```html
+&lt;ion-side-menus&gt;
+  &lt;!-- Center content --&gt;
+  &lt;ion-side-menu-content&gt;
+  &lt;/ion-side-menu-content&gt;
+
+  &lt;!-- Left menu --&gt;
+  &lt;ion-side-menu expose-aside-when="large"&gt;
+  &lt;/ion-side-menu&gt;
+&lt;/ion-side-menus&gt;
+```
+For a complete side menu example, see the
+{@link ionic.directive:ionSideMenus} documentation.</pre>
+</div>
+</div>

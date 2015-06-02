@@ -1,0 +1,91 @@
+<h1><code ng:non-bindable="">$cacheFactory</code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="-cachefactory-page"><p>Factory that constructs <a href="#/api/$cacheFactory.Cache">Cache</a> objects and gives access to
+them.</p>
+<pre><code class="lang-js">
+ var cache = $cacheFactory(&#39;cacheId&#39;);
+ expect($cacheFactory.get(&#39;cacheId&#39;)).toBe(cache);
+ expect($cacheFactory.get(&#39;noSuchCacheId&#39;)).not.toBeDefined();
+
+ cache.put(&quot;key&quot;, &quot;value&quot;);
+ cache.put(&quot;another key&quot;, &quot;another value&quot;);
+
+ // We&#39;ve specified no options on creation
+ expect(cache.info()).toEqual({id: &#39;cacheId&#39;, size: 2});</code></pre>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage"><pre class="prettyprint linenums">$cacheFactory(cacheId[, options]);</pre>
+<h4 id="usage_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>cacheId</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="-cachefactory-page"><p>Name or id of the newly created cache.</p>
+</div></td></tr><tr><td>options <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="-cachefactory-page"><p>Options object that specifies the cache behavior. Properties:</p>
+<ul>
+<li><code>{number=}</code> <code>capacity</code> — turns the cache into LRU cache.</li>
+</ul>
+</div></td></tr></tbody></table><h4 id="usage_returns">Returns</h4><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="-cachefactory-page"><p>Newly created cache object with the following set of methods:</p>
+<ul>
+<li><code>{object}</code> <code>info()</code> — Returns id, size, and options of cache.</li>
+<li><code>{{*}}</code> <code>put({string} key, {*} value)</code> — Puts a new key-value pair into the cache and returns
+it.</li>
+<li><code>{{*}}</code> <code>get({string} key)</code> — Returns cached value for <code>key</code> or undefined for cache miss.</li>
+<li><code>{void}</code> <code>remove({string} key)</code> — Removes a key-value pair from the cache.</li>
+<li><code>{void}</code> <code>removeAll()</code> — Removes all cached values.</li>
+<li><code>{void}</code> <code>destroy()</code> — Removes references to this cache from $cacheFactory.</li>
+</ul>
+</div></td></tr></table></div>
+<h2 id="example">Example</h2>
+<div class="example"><div class="-cachefactory-page"><h4 id="example_source">Source</h4>
+<div source-edit="cacheExampleApp" source-edit-deps="angular.js script.js" source-edit-html="index.html-3" source-edit-css="style.css-5" source-edit-js="script.js-4" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div class="tabbable"><div class="tab-pane" title="index.html">
+<pre class="prettyprint linenums" ng-set-text="index.html-3" ng-html-wrap-loaded="cacheExampleApp angular.js script.js"></pre>
+<script type="text/ng-template" id="index.html-3">
+  <div ng-controller="CacheController">
+    <input ng-model="newCacheKey" placeholder="Key">
+    <input ng-model="newCacheValue" placeholder="Value">
+    <button ng-click="put(newCacheKey, newCacheValue)">Cache</button>
+
+    <p ng-if="keys.length">Cached Values</p>
+    <div ng-repeat="key in keys">
+      <span ng-bind="key"></span>
+      <span>: </span>
+      <b ng-bind="cache.get(key)"></b>
+    </div>
+
+    <p>Cache Info</p>
+    <div ng-repeat="(key, value) in cache.info()">
+      <span ng-bind="key"></span>
+      <span>: </span>
+      <b ng-bind="value"></b>
+    </div>
+  </div>
+</script>
+</div>
+<div class="tab-pane" title="style.css">
+<pre class="prettyprint linenums" ng-set-text="style.css-5"></pre>
+<style type="text/css" id="style.css-5">
+  p {
+    margin: 10px 0 3px;
+  }
+</style>
+</div>
+<div class="tab-pane" title="script.js">
+<pre class="prettyprint linenums" ng-set-text="script.js-4"></pre>
+<script type="text/ng-template" id="script.js-4">
+  angular.module('cacheExampleApp', []).
+    controller('CacheController', ['$scope', '$cacheFactory', function($scope, $cacheFactory) {
+      $scope.keys = [];
+      $scope.cache = $cacheFactory('cacheId');
+      $scope.put = function(key, value) {
+        if ($scope.cache.get(key) === undefined) {
+          $scope.keys.push(key);
+        }
+        $scope.cache.put(key, value === undefined ? null : value);
+      };
+    }]);
+</script>
+</div>
+</div><h4 id="example_demo">Demo</h4>
+<div class="well doc-example-live animate-container" ng-embed-app="cacheExampleApp" ng-set-html="index.html-3" ng-eval-javascript="script.js-4"></div>
+</div></div>
+</div>

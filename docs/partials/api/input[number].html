@@ -1,0 +1,60 @@
+<h1><code ng:non-bindable="">input[number]</code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="input-number--page"><p>Text input with number validation and transformation. Sets the <code>number</code> validation
+error if not a valid number.</p>
+<p>The model must always be a number, otherwise Angular will throw an error.</p>
+</div></div>
+<h2 id="example">Example</h2>
+<div class="example"><div class="input-number--page"><example name="number-input-directive" module="numberExample">
+<file name="index.html">
+ <script>
+   angular.module(&#39;numberExample&#39;, [])
+     .controller(&#39;ExampleController&#39;, [&#39;$scope&#39;, function($scope) {
+       $scope.example = {
+         value: 12
+       };
+     }]);
+ </script>
+ <form name="myForm" ng-controller="ExampleController">
+   Number: <input type="number" name="input" ng-model="example.value"
+                  min="0" max="99" required>
+   <span class="error" ng-show="myForm.input.$error.required">
+     Required!</span>
+   <span class="error" ng-show="myForm.input.$error.number">
+     Not valid number!</span>
+   <tt>value = {{example.value}}</tt><br/>
+   <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
+   <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
+   <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
+   <tt>myForm.$error.required = {{!!myForm.$error.required}}</tt><br/>
+  </form>
+</file>
+<file name="protractor.js" type="protractor">
+  var value = element(by.binding(&#39;example.value&#39;));
+  var valid = element(by.binding(&#39;myForm.input.$valid&#39;));
+  var input = element(by.model(&#39;example.value&#39;));
+
+  it(&#39;should initialize to model&#39;, function() {
+    expect(value.getText()).toContain(&#39;12&#39;);
+    expect(valid.getText()).toContain(&#39;true&#39;);
+  });
+
+  it(&#39;should be invalid if empty&#39;, function() {
+    input.clear();
+    input.sendKeys(&#39;&#39;);
+    expect(value.getText()).toEqual(&#39;value =&#39;);
+    expect(valid.getText()).toContain(&#39;false&#39;);
+  });
+
+  it(&#39;should be invalid if over max&#39;, function() {
+    input.clear();
+    input.sendKeys(&#39;123&#39;);
+    expect(value.getText()).toEqual(&#39;value =&#39;);
+    expect(valid.getText()).toContain(&#39;false&#39;);
+  });
+</file>
+</example></div></div>
+</div>

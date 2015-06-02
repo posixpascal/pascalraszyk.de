@@ -1,0 +1,30 @@
+<h1><code ng:non-bindable="">RecipeViewCtrl</code>
+<div><span class="hint">controller in module <code ng:non-bindable="">frood.recipes</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="frood-recipes-controller-page frood-recipes-controller-recipeviewctrl-page"><p>Handles the main view of a recipe including ingredients &amp; cta buttons</p>
+</div></div>
+<h2 id="dependencies">Dependencies</h2>
+<ul class="dependencies"><li><code ng:non-bindable=""><a href="#/api/ng.$scope">$scope</a></code>
+</li>
+<li><code ng:non-bindable=""><a href="#/api/ng.$rootScope">$rootScope</a></code>
+</li>
+</ul>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><h3 id="methods_passrecipetostate">passRecipeToState(recipe, state)</h3>
+<div class="passrecipetostate"><div class="-passrecipetostate-page"><p>Abuses $rootScope &amp; changes to the state with the given ID (this is used for caching...)
+TODO: there has to be a better way to handle this.</p>
+</div><h5 id="methods_passrecipetostate_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>recipe</td><td><a href="" class="label type-hint type-hint-recipe">Recipe</a></td><td><div class="-passrecipetostate-page"><p>The recipe which will be passed to</p>
+</div></td></tr><tr><td>state</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="-passrecipetostate-page"><p>The state-name to change to.</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><h3 id="methods_selectportion">selectPortion(quantity)</h3>
+<div class="selectportion"><div class="-selectportion-page"><p>Changes the quantity of recipes with the given parameter.</p>
+</div><h5 id="methods_selectportion_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>quantity</td><td><a href="" class="label type-hint type-hint-number">Number</a></td><td><div class="-selectportion-page"><p>Change the quantity of a recipe, eg. ingredients are multiplied by quantity.</p>
+</div></td></tr></tbody></table></div>
+</li>
+</ul>
+</div>
+</div>

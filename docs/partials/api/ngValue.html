@@ -1,0 +1,58 @@
+<h1><code ng:non-bindable="">ngValue</code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="ngvalue-page"><p>Binds the given expression to the value of <code>&lt;option&gt;</code> or <a href="#/api/input[radio]"><code>input[radio]</code></a>,
+so that when the element is selected, the <a href="#/api/ngModel"><code>ngModel</code></a> of that element is set to
+the bound value.</p>
+<p><code>ngValue</code> is useful when dynamically generating lists of radio buttons using
+<a href="#/api/ngRepeat"><code>ngRepeat</code></a>, as shown below.</p>
+<p>Likewise, <code>ngValue</code> can be used to generate <code>&lt;option&gt;</code> elements for
+the <a href="#/api/select"><code>select</code></a> element. In that case however, only strings are supported
+for the <code>value</code>attribute, so the resulting <code>ngModel</code> will always be a string.
+Support for <code>select</code> models with non-string values is available via <code>ngOptions</code>.</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage">as attribute<pre class="prettyprint linenums">&lt;input ng-value="{string}"&gt;
+   ...
+&lt;/input&gt;</pre>
+<h4 id="usage_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>ngValue <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="ngvalue-page"><p>angular expression, whose value will be bound to the <code>value</code> attribute
+of the <code>input</code> element</p>
+</div></td></tr></tbody></table></div>
+<h2 id="example">Example</h2>
+<div class="example"><div class="ngvalue-page"><example name="ngValue-directive" module="valueExample">
+<file name="index.html">
+ <script>
+    angular.module(&#39;valueExample&#39;, [])
+      .controller(&#39;ExampleController&#39;, [&#39;$scope&#39;, function($scope) {
+        $scope.names = [&#39;pizza&#39;, &#39;unicorns&#39;, &#39;robots&#39;];
+        $scope.my = { favorite: &#39;unicorns&#39; };
+      }]);
+ </script>
+  <form ng-controller="ExampleController">
+    <h4 id="example_which-is-your-favorite">Which is your favorite?</h4>
+      <label ng-repeat="name in names" for="{{name}}">
+        {{name}}
+        <input type="radio"
+               ng-model="my.favorite"
+               ng-value="name"
+               id="{{name}}"
+               name="favorite">
+      </label>
+    <div>You chose {{my.favorite}}</div>
+  </form>
+</file>
+<file name="protractor.js" type="protractor">
+  var favorite = element(by.binding(&#39;my.favorite&#39;));
+
+  it(&#39;should initialize to model&#39;, function() {
+    expect(favorite.getText()).toContain(&#39;unicorns&#39;);
+  });
+  it(&#39;should bind the values to the inputs&#39;, function() {
+    element.all(by.model(&#39;my.favorite&#39;)).get(0).click();
+    expect(favorite.getText()).toContain(&#39;pizza&#39;);
+  });
+</file>
+</example></div></div>
+</div>

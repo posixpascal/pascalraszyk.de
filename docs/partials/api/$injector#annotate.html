@@ -1,0 +1,62 @@
+<h1><code ng:non-bindable="">$injector#annotate</code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="-injector-annotate-page"><p>Returns an array of service names which the function is requesting for injection. This API is
+used by the injector to determine which services need to be injected into the function when the
+function is invoked. There are three ways in which the function can be annotated with the needed
+dependencies.</p>
+<h3 id="description_argument-names">Argument names</h3>
+<p>The simplest form is to extract the dependencies from the arguments of the function. This is done
+by converting the function into a string using <code>toString()</code> method and extracting the argument
+names.</p>
+<pre><code class="lang-js">  // Given
+  function MyController($scope, $route) {
+    // ...
+  }
+
+  // Then
+  expect(injector.annotate(MyController)).toEqual([&#39;$scope&#39;, &#39;$route&#39;]);</code></pre>
+<p>You can disallow this method by using strict injection mode.</p>
+<p>This method does not work with code minification / obfuscation. For this reason the following
+annotation strategies are supported.</p>
+<h3 id="description_the-property">The <code>$inject</code> property</h3>
+<p>If a function has an <code>$inject</code> property and its value is an array of strings, then the strings
+represent names of services to be injected into the function.</p>
+<pre><code class="lang-js">  // Given
+  var MyController = function(obfuscatedScope, obfuscatedRoute) {
+    // ...
+  }
+  // Define function dependencies
+  MyController[&#39;$inject&#39;] = [&#39;$scope&#39;, &#39;$route&#39;];
+
+  // Then
+  expect(injector.annotate(MyController)).toEqual([&#39;$scope&#39;, &#39;$route&#39;]);</code></pre>
+<h3 id="description_the-array-notation">The array notation</h3>
+<p>It is often desirable to inline Injected functions and that&#39;s when setting the <code>$inject</code> property
+is very inconvenient. In these situations using the array notation to specify the dependencies in
+a way that survives minification is a better choice:</p>
+<pre><code class="lang-js">  // We wish to write this (not minification / obfuscation safe)
+  injector.invoke(function($compile, $rootScope) {
+    // ...
+  });
+
+  // We are forced to write break inlining
+  var tmpFn = function(obfuscatedCompile, obfuscatedRootScope) {
+    // ...
+  };
+  tmpFn.$inject = [&#39;$compile&#39;, &#39;$rootScope&#39;];
+  injector.invoke(tmpFn);
+
+  // To better support inline function the inline annotation is supported
+  injector.invoke([&#39;$compile&#39;, &#39;$rootScope&#39;, function(obfCompile, obfRootScope) {
+    // ...
+  }]);
+
+  // Therefore
+  expect(injector.annotate(
+     [&#39;$compile&#39;, &#39;$rootScope&#39;, function(obfus_$compile, obfus_$rootScope) {}])
+   ).toEqual([&#39;$compile&#39;, &#39;$rootScope&#39;]);</code></pre>
+</div></div>
+</div>

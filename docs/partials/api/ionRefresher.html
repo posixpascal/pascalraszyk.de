@@ -1,0 +1,56 @@
+<h1><code ng:non-bindable="">ionRefresher</code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="ionrefresher-page"><p>Allows you to add pull-to-refresh to a scrollView.</p>
+<p>Place it as the first child of your <a href="#/api/ionic.directive:ionContent">ionic.directive:ionContent</a> or
+<a href="#/api/ionic.directive:ionScroll">ionic.directive:ionScroll</a> element.</p>
+<p>When refreshing is complete, $broadcast the &#39;scroll.refreshComplete&#39; event
+from your controller.</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage"><pre class="prettyprint linenums">```html
+&lt;ion-content ng-controller="MyController"&gt;
+  &lt;ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="doRefresh()"&gt;
+  &lt;/ion-refresher&gt;
+  &lt;ion-list&gt;
+    &lt;ion-item ng-repeat="item in items"&gt;&lt;/ion-item&gt;
+  &lt;/ion-list&gt;
+&lt;/ion-content&gt;
+```
+```js
+angular.module('testApp', ['ionic'])
+.controller('MyController', function($scope, $http) {
+  $scope.items = [1,2,3];
+  $scope.doRefresh = function() {
+    $http.get('/new-items')
+     .success(function(newItems) {
+       $scope.items = newItems;
+     })
+     .finally(function() {
+       // Stop the ion-refresher from spinning
+       $scope.$broadcast('scroll.refreshComplete');
+     });
+  };
+});
+```</pre>
+<h4 id="usage_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>on-refresh <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-expression">expression</a></td><td><div class="ionrefresher-page"><p>Called when the user pulls down enough and lets go
+of the refresher.</p>
+</div></td></tr><tr><td>on-pulling <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-expression">expression</a></td><td><div class="ionrefresher-page"><p>Called when the user starts to pull down
+on the refresher.</p>
+</div></td></tr><tr><td>pulling-text <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="ionrefresher-page"><p>The text to display while the user is pulling down.</p>
+</div></td></tr><tr><td>pulling-icon <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="ionrefresher-page"><p>The icon to display while the user is pulling down.
+Default: &#39;ion-android-arrow-down&#39;.</p>
+</div></td></tr><tr><td>spinner <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="ionrefresher-page"><p>The <a href="#/api/ionic.directive:ionSpinner">ionic.directive:ionSpinner</a> icon to display
+after user lets go of the refresher. The SVG <a href="#/api/ionic.directive:ionSpinner">ionic.directive:ionSpinner</a>
+is now the default, replacing rotating font icons. Set to <code>none</code> to disable both the
+spinner and the icon.</p>
+</div></td></tr><tr><td>refreshing-icon <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="ionrefresher-page"><p>The font icon to display after user lets go of the
+refresher. This is depreicated in favor of the SVG <a href="#/api/ionic.directive:ionSpinner">ionic.directive:ionSpinner</a>.</p>
+</div></td></tr><tr><td>disable-pulling-rotation <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-boolean">boolean</a></td><td><div class="ionrefresher-page"><p>Disables the rotation animation of the pulling
+icon when it reaches its activated threshold. To be used with a custom <code>pulling-icon</code>.</p>
+</div></td></tr></tbody></table></div>
+</div>

@@ -1,0 +1,52 @@
+<h1><code ng:non-bindable="">ionNavBackButton</code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="ionnavbackbutton-page"><p>Creates a back button inside an <a href="#/api/ionic.directive:ionNavBar">ionic.directive:ionNavBar</a>.</p>
+<p>The back button will appear when the user is able to go back in the current navigation stack. By
+default, the markup of the back button is automatically built using platform-appropriate defaults
+(iOS back button icon on iOS and Android icon on Android).</p>
+<p>Additionally, the button is automatically set to <code>$ionicGoBack()</code> on click/tap. By default, the
+app will navigate back one view when the back button is clicked.  More advanced behavior is also
+possible, as outlined below.</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage"><pre class="prettyprint linenums">Recommended markup for default settings:
+
+```html
+&lt;ion-nav-bar&gt;
+  &lt;ion-nav-back-button&gt;
+  &lt;/ion-nav-back-button&gt;
+&lt;/ion-nav-bar&gt;
+```
+
+With custom inner markup, and automatically adds a default click action:
+
+```html
+&lt;ion-nav-bar&gt;
+  &lt;ion-nav-back-button class="button-clear"&gt;
+    &lt;i class="ion-arrow-left-c"&gt;&lt;/i&gt; Back
+  &lt;/ion-nav-back-button&gt;
+&lt;/ion-nav-bar&gt;
+```
+
+With custom inner markup and custom click action, using {@link ionic.service:$ionicHistory}:
+
+```html
+&lt;ion-nav-bar ng-controller="MyCtrl"&gt;
+  &lt;ion-nav-back-button class="button-clear"
+    ng-click="myGoBack()"&gt;
+    &lt;i class="ion-arrow-left-c"&gt;&lt;/i&gt; Back
+  &lt;/ion-nav-back-button&gt;
+&lt;/ion-nav-bar&gt;
+```
+```js
+function MyCtrl($scope, $ionicHistory) {
+  $scope.myGoBack = function() {
+    $ionicHistory.goBack();
+  };
+}
+```</pre>
+</div>
+</div>

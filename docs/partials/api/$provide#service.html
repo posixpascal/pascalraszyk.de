@@ -1,0 +1,31 @@
+<h1><code ng:non-bindable="">$provide#service</code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="-provide-service-page"><p>Register a <strong>service constructor</strong>, which will be invoked with <code>new</code> to create the service
+instance.
+This is short for registering a service where its provider&#39;s <code>$get</code> property is the service
+constructor function that will be used to instantiate the service instance.</p>
+<p>You should use <a href="#/api/auto.$provide#service">$provide.service(class)</a> if you define your service
+as a type/class.</p>
+</div></div>
+<h2 id="example">Example</h2>
+<div class="example"><div class="-provide-service-page"><p>Here is an example of registering a service using
+<a href="#/api/auto.$provide#service">$provide.service(class)</a>.</p>
+<pre><code class="lang-js">  var Ping = function($http) {
+    this.$http = $http;
+  };
+
+  Ping.$inject = [&#39;$http&#39;];
+
+  Ping.prototype.send = function() {
+    return this.$http.get(&#39;/ping&#39;);
+  };
+  $provide.service(&#39;ping&#39;, Ping);</code></pre>
+<p>You would then inject and use this service like this:</p>
+<pre><code class="lang-js">  someModule.controller(&#39;Ctrl&#39;, [&#39;ping&#39;, function(ping) {
+    ping.send();
+  }]);</code></pre>
+</div></div>
+</div>

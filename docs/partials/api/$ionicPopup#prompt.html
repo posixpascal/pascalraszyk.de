@@ -1,0 +1,18 @@
+<h1><code ng:non-bindable="">$ionicPopup#prompt</code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="-ionicpopup-prompt-page"><p>Show a simple prompt popup, which has an input, OK button, and Cancel button.
+Resolves the promise with the value of the input if the user presses OK, and with undefined
+if the user presses Cancel.</p>
+<pre><code class="lang-javascript"> $ionicPopup.prompt({
+   title: &#39;Password Check&#39;,
+   template: &#39;Enter your secret password&#39;,
+   inputType: &#39;password&#39;,
+   inputPlaceholder: &#39;Your password&#39;
+ }).then(function(res) {
+   console.log(&#39;Your password is&#39;, res);
+ });</code></pre>
+</div></div>
+</div>

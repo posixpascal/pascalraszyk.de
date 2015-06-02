@@ -1,0 +1,39 @@
+<h1><code ng:non-bindable="">$injector</code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="-injector-page"><p><code>$injector</code> is used to retrieve object instances as defined by
+<a href="#/api/auto.$provide">provider</a>, instantiate types, invoke methods,
+and load modules.</p>
+<p>The following always holds true:</p>
+<pre><code class="lang-js">  var $injector = angular.injector();
+  expect($injector.get(&#39;$injector&#39;)).toBe($injector);
+  expect($injector.invoke(function($injector) {
+    return $injector;
+  })).toBe($injector);</code></pre>
+<h3 id="description_injection-function-annotation">Injection Function Annotation</h3>
+<p>JavaScript does not have annotations, and annotations are needed for dependency injection. The
+following are all valid ways of annotating function with injection arguments and are equivalent.</p>
+<pre><code class="lang-js">  // inferred (only works if code not minified/obfuscated)
+  $injector.invoke(function(serviceA){});
+
+  // annotated
+  function explicit(serviceA) {};
+  explicit.$inject = [&#39;serviceA&#39;];
+  $injector.invoke(explicit);
+
+  // inline
+  $injector.invoke([&#39;serviceA&#39;, function(serviceA){}]);</code></pre>
+<h4 id="description_injection-function-annotation_inference">Inference</h4>
+<p>In JavaScript calling <code>toString()</code> on a function returns the function definition. The definition
+can then be parsed and the function arguments can be extracted. This method of discovering
+annotations is disallowed when the injector is in strict mode.
+<em>NOTE:</em> This does not work with minification, and obfuscation tools since these tools change the
+argument names.</p>
+<h4 id="description_injection-function-annotation_-annotation"><code>$inject</code> Annotation</h4>
+<p>By adding an <code>$inject</code> property onto a function the injection parameters can be specified.</p>
+<h4 id="description_injection-function-annotation_inline">Inline</h4>
+<p>As an array of injection names, where the last item in the array is the function to call.</p>
+</div></div>
+</div>

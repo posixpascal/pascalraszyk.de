@@ -1,0 +1,19 @@
+<h1><code ng:non-bindable="">$provide#decorator</code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="-provide-decorator-page"><p>Register a <strong>service decorator</strong> with the <a href="#/api/auto.$injector">$injector</a>. A service decorator
+intercepts the creation of a service, allowing it to override or modify the behaviour of the
+service. The object returned by the decorator may be the original service, or a new service
+object which replaces or wraps and delegates to the original service.</p>
+</div></div>
+<h2 id="example">Example</h2>
+<div class="example"><div class="-provide-decorator-page"><p>Here we decorate the <a href="#/api/ng.$log"><code>$log</code></a> service to convert warnings to errors by intercepting
+calls to <a href="#/api/ng.$log#error"><code>$log.warn()</code></a>.</p>
+<pre><code class="lang-js">  $provide.decorator(&#39;$log&#39;, [&#39;$delegate&#39;, function($delegate) {
+    $delegate.warn = $delegate.error;
+    return $delegate;
+  }]);</code></pre>
+</div></div>
+</div>

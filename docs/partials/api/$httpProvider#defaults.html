@@ -1,0 +1,34 @@
+<h1><code ng:non-bindable="">$httpProvider#defaults</code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="-httpprovider-defaults-page"><p>Object containing default values for all <a href="#/api/ng.$http"><code>$http</code></a> requests.</p>
+<ul>
+<li><p><strong><code>defaults.cache</code></strong> - {Object} - an object built with <a href="#/api/ng.$cacheFactory"><code><code>$cacheFactory</code></code></a>
+that will provide the cache for all requests who set their <code>cache</code> property to <code>true</code>.
+If you set the <code>default.cache = false</code> then only requests that specify their own custom
+cache object will be cached. See <a href="#/api/$http#caching">$http Caching</a> for more information.</p>
+</li>
+<li><p><strong><code>defaults.xsrfCookieName</code></strong> - {string} - Name of cookie containing the XSRF token.
+Defaults value is <code>&#39;XSRF-TOKEN&#39;</code>.</p>
+</li>
+<li><p><strong><code>defaults.xsrfHeaderName</code></strong> - {string} - Name of HTTP header to populate with the
+XSRF token. Defaults value is <code>&#39;X-XSRF-TOKEN&#39;</code>.</p>
+</li>
+<li><p><strong><code>defaults.headers</code></strong> - {Object} - Default headers for all $http requests.
+Refer to <a href="#/api/ng.$http#setting-http-headers"><code>$http</code></a> for documentation on
+setting default headers.</p>
+<ul>
+<li><strong><code>defaults.headers.common</code></strong></li>
+<li><strong><code>defaults.headers.post</code></strong></li>
+<li><strong><code>defaults.headers.put</code></strong></li>
+<li><strong><code>defaults.headers.patch</code></strong></li>
+</ul>
+</li>
+</ul>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage"><pre class="prettyprint linenums">$httpProvider#defaults</pre>
+</div>
+</div>
