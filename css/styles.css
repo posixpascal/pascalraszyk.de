@@ -461,8 +461,19 @@ a:hover, a:focus {
     left: 0px;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,.3);
+background: rgba(0,0,0,.4);
 
+}
+header {
+
+    max-height: 160px;
+    overflow: hidden;
+    background: rgba(63, 97, 132, 0.85);
+    box-shadow: 0 0 5px #000;
+}
+.showcase {
+    text-shadow: 0 0 10px rgba(0,0,0,.8);
+    color: #000;
 }
 
 /* ==========================================================================
@@ -625,18 +636,11 @@ header i {
 Video
 ========================================================================== */
 .section-red {
-background: #4cb8c4;
-background: -moz-linear-gradient(-45deg,  #4cb8c4 0%, #3cd3ad 100%);
-background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#4cb8c4), color-stop(100%,#3cd3ad));
-background: -webkit-linear-gradient(-45deg,  #4cb8c4 0%,#3cd3ad 100%);
-background: -o-linear-gradient(-45deg,  #4cb8c4 0%,#3cd3ad 100%);
-background: -ms-linear-gradient(-45deg,  #4cb8c4 0%,#3cd3ad 100%);
-background: linear-gradient(135deg,  #4cb8c4 0%,#3cd3ad 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4cb8c4', endColorstr='#3cd3ad',GradientType=1 );
-
+    background-color:rgba(63, 97, 132, 1);
 
     color: #fff !important;
     padding: 50px;
+    box-shadow: none;
 }
 .section-red a {
     color: #fff;
@@ -894,20 +898,24 @@ Screenshots
     float: left;
     min-height: 100%;
     width: 25%;
-    background-color: #000;
+  
     list-style: none;
 }
 .screenshots figure {
     position: relative;
     overflow: hidden;
+        padding: 30px;
 }
-.screenshots figure img {
-    width: 100%;
-    height: 100%;
+.screenshots figure svg {
+    width: 50%;
+    height: 50%;
+    display: inline-block;
+    margin-left: 25%;
+
     -webkit-transition: all 300ms ease-in-out;
     transition: all 300ms ease-in-out;
 }
-.screenshots figure:hover img, .screenshots figure:focus img {
+.screenshots figure:hover svg, .screenshots figure:focus svg {
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);
@@ -916,7 +924,7 @@ Screenshots
     position: absolute;
     top: 0;
     left: 0;
-    padding: 25% 0;
+    padding: 20px 0;
     width: 100%;
     height: 100%;
     background-color: rgba(63, 97, 132, 0.85);
@@ -930,7 +938,7 @@ Screenshots
     color: #fff
 }
 .screenshots figcaption a:hover, .screenshots figcaption a:focus {
-    color: #4cb8c4
+    color: #fff
 }
 .screenshots figure:hover figcaption, .screenshots figure:focus figcaption {
     opacity: 1
@@ -942,8 +950,7 @@ Screenshots
     opacity: 1
 }
 .screenshots figcaption i {
-    font-size: 35px
-}
+    font-size: 96px}
 .screenshots figcaption p {
     margin-bottom: 0;
     text-transform: uppercase;
@@ -951,9 +958,9 @@ Screenshots
 }
 .screenshots figcaption .caption-content {
     position: absolute;
-    top: 50%;
+    top: 10%;
     left: 50%;
-    margin-top: -40px;
+    
     margin-left: -100px;
     width: 200px;
     -webkit-transform: translate(0px, 15px);
@@ -1149,7 +1156,7 @@ Waypoints
 }
 
 .navicon {
-    margin-top: 13px;
+    margin-top: 10px;
 }
 
 .lisa {
