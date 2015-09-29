@@ -19,5 +19,6 @@ The first two nodes of what would become the ARPANET were interconnected between
 
 TELEGRAPH:
 between 1000 - 4200 words
+0,05kb/s - 50bytes/s
 WikiPedia Page ~ 1 hour - ca. 170kb
 ~ 4sekunden (50kb/s)
