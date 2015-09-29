@@ -98,7 +98,7 @@
 .hidden {
 	display: none;
 }
-textarea {
+.present textarea {
 	width: 100%;
 	bottom: 0;
 	text-align: center;
@@ -113,6 +113,28 @@ textarea {
 	padding-top: 200px;
 }
 textarea.puke {
-	background-image: url('../img/puke.gif');
+	/*background-image: url('../img/puke.gif');
+	background-size: cover;*/
+}
+
+.telegraf {
+	background-image: url('../img/telegraf.jpg');
 	background-size: cover;
+}
+
+.skyscraper {
+	background-image: url('../img/skyscraper-05.jpg');
+	background-size: cover;
+}
+
+.skyscraper_room {
+	background-image: url('../img/skyscraper_room.jpg');
+	background-size: cover;
+}
+
+.lonelytitle h1 {
+	font-size: 96px;
+	line-height: 122px !important;
+	text-align: center;
+	padding-top: 20%;
 }
