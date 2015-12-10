@@ -1,1 +1,1 @@
-web: impress-server -p $PORT -d webppt
+web: python -m SimpleHTTPServer $PORT
