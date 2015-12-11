@@ -1,0 +1,42 @@
+name: pascalraszyk.de
+description: Blogging about IT stuff 'cause of boredom.
+meta_description: "pascalraszyk.de - Blogging about IT stuff 'cause of boredom."
+aboutPage: true
+
+markdown: redcarpet
+highlighter: rouge
+
+gems: [jekyll-paginate]
+paginate: 20
+baseurl: /
+domain_name: 'http://pascalraszyk.de'
+google_analytics: 'UA-47848736-3'
+disqus: true
+disqus_shortname: 'pascalraszykde'
+
+# Details for the RSS feed generator
+url:            'http://pascalraszyk.de'
+author:         'Pascal Raszyk'
+authorTwitter:  'pascalraszyk'
+
+permalink:       /:year/:month/:day/:title.html
+
+defaults:
+    -
+        scope:
+            path: "" # empty string for all files
+            type: pages
+        values:
+            layout: default
+    -
+        scope:
+            path: "" # empty string for all files
+            type: posts
+        values:
+            layout: post
+    -
+        scope:
+            path: ""
+            type: drafts
+        values:
+            layout: post
