@@ -33,7 +33,7 @@ So far so good. But wait, if you view the video right now in the browser, you'll
 
 Alright, so let's add the poster attribute to our video tag
 {% highlight html %}
-<video controls="1" poster="http://unsplash.it/200x400?random">
+<video controls="1" poster="https://unsplash.it/200x400?random">
 	<source 
 		type="video/mp4; codecs='avc1.42E01E, mp4a.40.2" 
 		src="your-video.mp4" />
@@ -44,7 +44,7 @@ Alright, so let's add the poster attribute to our video tag
 
 Finally, our video tag might look like this:
 
-<video style="width: 100%; height: 200px;" controls="1" poster="http://unsplash.it/200x400?random">
+<video style="width: 100%; height: 200px;" controls="1" poster="https://unsplash.it/200x400?random">
 	<source 
 		type="video/mp4; codecs='avc1.42E01E, mp4a.40.2" 
 		src="your-video.mp4" />
@@ -64,7 +64,7 @@ video {
 }
 {% endhighlight %}
 
-<video style="width: 100%; height: 200px;background-image: url('http://unsplash.it/520x200?t=2&random');background-size: cover;" controls="1" poster="http://unsplash.it/520x200?t=25&random">
+<video style="width: 100%; height: 200px;background-image: url('https://unsplash.it/520x200?t=2&random');background-size: cover;" controls="1" poster="https://unsplash.it/520x200?t=25&random">
 	<source 
 		type="video/mp4; codecs='avc1.42E01E, mp4a.40.2" 
 		src="your-video.mp4" />
