@@ -1,14 +1,3 @@
-/* Reset */
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
-*, *:before, *:after { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
-
-/* Clearfix */
-.clearfix:after {
-	content: "";
-	display: table;
-	clear: both;
-}
-.hidden { display: none; }
 
 /* Icons */
 @font-face {
@@ -42,274 +31,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 .icon-twitter-circled:before { content: '\e806'; }
 .icon-facebook-rect:before { content: '\e803'; }
 
-/* Spacing */
-.post h1, h3, h4, h5, p, .post-body ul, #post-list li, pre {
-margin-bottom: 20px;
-}
 
-/* Base */
-html, body { height: 100%; }
-
-body {
-	font:16px/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
-	color: #666;
-	-webkit-font-smoothing: antialiased;
-	text-rendering: optimizeLegibility;
-}
-
-h1 {
-	font-size: 30px;
-	letter-spacing: -1px;
-	color: #222;
-	font-weight: bold;
-}
-
-h2 {
-	font: italic 19px/1.3em Georgia,serif;
-	color: #bbb;
-}
-
-.profile #wrapper {
-	padding: 100px 40px 0px;
-	max-width: 600px;
-	margin: 0 auto;
-}
-
-.profile #header {
-	border-bottom: 1px solid #eee;
-	margin-bottom: 40px;
-	padding-bottom: 40px;
-	text-align: center;
-	position: relative;
-}
-
-.profile #avatar {
-	display: inline-block;
-	width: 80px;
-	height: 80px;
-	border-radius: 50%;
-	margin-bottom: 20px;
-}
-
-.profile h1 {
-	font-weight: 400;
-	letter-spacing: 0px;
-	font-size: 20px;
-	color: #222;
-}
-
-.profile h2 {
-	font-size: 20px;
-	  font-weight: 300;
-	  color: #aaa;
-	  margin-top: 10px;
-	  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	  font-style: normal;
-
-}
-
-nav.main-nav {
-	padding: 20px 20px 0;
-
-	/*max-width: 600px;*/
-	/*width:100%;*/
-	background: #fff;
-	background: rgba(255,255,255,.90);
-	margin: 0 auto;
-	text-align: right;
-	/*position: fixed;*/
-	z-index: 100;
-}
-
-nav.main-nav a {
-	top: 8px;
-	right: 6px;
-	padding: 8px 12px;
-	color: #5badf0;
-	font-size: 13px;
-	/*font-weight: bold;*/
-	line-height: 1.35;
-	border-radius: 3px;
-
-}
-nav.main-nav a.cta {
-	background: #5badf0;
-	color: #fff;
-	margin-left: 12px;
-}
-
-#wrapper {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 60px 40px 100px 40px;
-}
-
-#wrapper.home {
-	max-width: 600px;
-	margin: 0 auto;
-	padding: 0px 40px 20px 40px;
-}
-
-.home #avatar {
-	float: right;
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-}
-
-/* Typography */
-/*Accent color*/
-a,
-#title,
-#post-list a:hover,
-#post-list li:hover .dates,
-#title:hover {
-	text-decoration: none;
-	color: #5badf0;
-	color: #5694f1;
-}
-
-p a { color: #5694f1; }
-
-/*Transitions*/
-a,
-#post-nav a,
-#post-list a	{
-	-webkit-transition: all 0.15s ease;
-	-moz-transition: all 0.15s ease;
-	-ms-transition: all 0.15s ease;
-	-o-transition: all 0.15s ease;
-	transition: all 0.15s ease;
-}
-
-ul 	{ margin:0; padding:0; }
-li	{ list-style-type:circle; list-style-position:inside; }
-
-/* Line Height */
-#post-body, p { line-height:1.7; }
-
-b, strong { font-weight: 500;
-  color: #1E2025; }
-em, i { font-style: italic; }
-
-#title {
-	display: inline-block;
-	line-height: 100%;
-	font-weight: 500;
-	font-size: 19px;
-	margin: 0;
-	padding-bottom: 20px;
-}
-
-.description {
-	float: right;
-	font: italic 14px/1.4em Georgia,serif;
-	color: #aaa;
-}
-
-
-
-.home h1 {
-	font-size: 30px;
-	letter-spacing: -1px;
-	color: #222;
-	font-weight: bold;
-}
-
-.home h2 {
-	font: italic 19px/1.3em Georgia,serif;
-	color: #bbb;
-}
-
-.post header {
-	text-align:center;
-
-}
-
-.post h1 {
-	margin-bottom: 20px;
-	color: #222;
-	font: 300 32px/1.4em "Helvetica Neue", Helvetica,Arial,sans-serif;
-}
-
-.post h2 {
-	margin-bottom: 40px;
-	  font: 300 24px/1.5 "Helvetica Neue",Helvetica,Arial,sans-serif;
-	  color: #111;
-}
-
-
-.post h2.headline {
-	/*font: italic 22px/1.3em Georgia,serif;*/
-	font: normal 13px/1.5em "Helvetica Neue",Helvetica,Arial,sans-serif;
-	margin: -5px 0 40px 0;
-	color: #b2b9be;
-	  font-size: 13px;
-	  text-transform: uppercase;
-	  letter-spacing: 2px;
-	  /*margin-top: 15px;*/
-	  display: inline-block;
-}
-
-#post-list h2 {
-	font: normal 17px/1.5em "Helvetica Neue",Helvetica,Arial,sans-serif;
-	color: #aaa;
-	max-width: 400px;
-	margin-top: 2px;
-}
-
-h3, h4, h5 { color:#333; }
-
-h3 { font-size:20px; font-weight: 400; }
-h4 { font-size:16px; font-weight:bold; }
-h5 { font-size:15px; font-weight: bold; }
-
-h6 {
-	font-size: 13px;
-	font-weight: bold;
-	color: #666;
-	margin-bottom: 6px;
-}
-
-p.small {
-	color: #bbb;
-	font-size: 14px;
-	line-height: 1.5;
-	display: block;
-}
-
-blockquote {
-	padding-left: 15px;
-	border-left: 3px solid #eee;
-}
-
-hr {
-	display: block;
-	border: none;
-	height: 1px;
-	margin: 40px auto;
-	background: #eee;
-}
-
-span.code { font-family:Menlo, Monaco, Courier; background-color:#EEE; font-size:14px; }
-
-pre	{
-	font-family:Menlo, Monaco, Courier;
-	white-space:pre-wrap;
-	/*border: 1px solid #ddd;*/
-	padding:20px;
-	background-color:#fdfdfd;
-	/*font-size:14px;*/
-	overflow:auto;
-	border-radius: 3px;
-	background: #272b2d;
-	  font-family: 'Source Code Pro',Menlo,monospace;
-	  font-size: 13px;
-	  line-height: 1.5em;
-	  font-weight: 500;
-	color: #d0d4d7;
-
-}
 
 table {
 	width: 100%;
@@ -433,6 +155,7 @@ Post List
 	padding: 40px 0 0 0;
 	margin-top: 100px;
 }
+
 
 /* Post Page */
 #header {
@@ -622,26 +345,6 @@ h2.month {
   margin-left: 2px;
 }
 
-/* Media Queries */
-@media screen and (max-width: 540px) {
-	#wrapper { padding:20px 20px 20px 20px;}
-	#header { margin-bottom: 60px; border-bottom: 1px solid #eee; }
-	.post { margin: 40px 0; }
-	#footer { margin-top: 60px; }
-
-	#post-list, #archive-list { margin-top: 0; }
-	#post-meta { margin-top: 60px; }
-
-	#title { font-size: 17px; }
-	#post-list .dates { display: none; }
-
-	#post-list-footer { margin-top: 20px; padding-top: 40px; }
-
-	h1 { font-size: 26px; }
-	.post h2.headline { font-size: 13px; }
-	.post h1 { font-size:24px; }
-	.post h2 { font-size:20px; }
-}
 
 p > code {
 	padding: 2px 4px;
@@ -698,3 +401,116 @@ blockquote {
 .hashtag {
 	/*color: #5694f1;*/
 }
+
+
+
+
+/*** STYLING HIGHLIGHT ****/
+/*
+  IR_Black style (c) Vasily Mikhailitchenko <vaskas@programica.ru>
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  /*padding: 0.5em;*/
+  background: #272b2d;
+  color: #d0d0d0;
+  -webkit-text-size-adjust: none;
+}
+
+.hljs-shebang,
+.hljs-comment {
+  color: #777279;
+}
+
+.hljs-keyword,
+.hljs-tag,
+.tex .hljs-command,
+.hljs-request,
+.hljs-status,
+.clojure .hljs-attribute {
+  color: #ebde68;
+}
+
+.hljs-sub .hljs-keyword,
+.method,
+.hljs-list .hljs-title,
+.nginx .hljs-title {
+  color: #ffffb6;
+}
+
+.hljs-string,
+.hljs-tag .hljs-value,
+.hljs-cdata,
+.hljs-filter .hljs-argument,
+.hljs-attr_selector,
+.apache .hljs-cbracket,
+.hljs-date,
+.coffeescript .hljs-attribute {
+  color: #c1ef65;
+}
+
+.hljs-subst {
+  color: #daefa3;
+}
+
+.hljs-regexp {
+  color: #e9c062;
+}
+
+.hljs-title,
+.hljs-sub .hljs-identifier,
+.hljs-pi,
+.hljs-decorator,
+.tex .hljs-special,
+.hljs-type,
+.hljs-constant,
+.smalltalk .hljs-class,
+.hljs-doctag,
+.nginx .hljs-built_in {
+  color: #c1ef65;
+}
+
+.hljs-symbol,
+.ruby .hljs-symbol .hljs-string,
+.hljs-number,
+.hljs-variable,
+.vbscript,
+.hljs-literal,
+.hljs-name {
+  color: #77bcd7;
+}
+
+.css .hljs-tag {
+  color: #96cbfe;
+}
+
+.css .hljs-rule .hljs-property,
+.css .hljs-id {
+  color: #ffffb6;
+}
+
+.css .hljs-class {
+  color: #fff;
+}
+
+.hljs-hexcolor {
+  color: #c6c5fe;
+}
+
+.hljs-number {
+  color:#77bcd7;
+}
+
+.coffeescript .javascript,
+.javascript .xml,
+.tex .hljs-formula,
+.xml .javascript,
+.xml .vbscript,
+.xml .css,
+.xml .hljs-cdata {
+  opacity: 0.7;
+}
+
+

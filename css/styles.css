@@ -465,11 +465,10 @@ background: rgba(0,0,0,.4);
 
 }
 header {
-
-    max-height: 160px;
+    background: #222;
+    max-height: 80px;
     overflow: hidden;
-    background: rgba(63, 97, 132, 0.85);
-    box-shadow: 0 0 5px #000;
+
 }
 .showcase {
     text-shadow: 0 0 10px rgba(0,0,0,.8);
@@ -526,7 +525,7 @@ Buttons
 Navigation
 ========================================================================== */
 .navigation-bar {
-    padding-top: 25px;
+    padding-top: 18px;
     background: transparent;
 
 }
@@ -1152,7 +1151,7 @@ Waypoints
     animation-delay: 1s;
 }
 .parallax.hero {
-    padding-top: 35px;
+    padding-top: 0px;
 }
 
 .navicon {
