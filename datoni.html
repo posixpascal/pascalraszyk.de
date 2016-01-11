@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Du wirst weitergeleitet...</title>
+		<script>
+			var ua = navigator.userAgent.toLowerCase();
+			var isAndroid = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
+			if(isAndroid) {
+				
+				window.location = 'https://play.google.com/store/apps/details?id=de.pascalraszyk.datoniapp&hl=en';
+			} else {
+				window.location = "https://itunes.apple.com/us/app/da-toni/id990636619?mt=8";
+			}
+		</script>
+	</head>
+	<body>
+		<center>
+			Du wirst nun zur App weitergeleitet...
+		</center>
+	</body>
+</html>
