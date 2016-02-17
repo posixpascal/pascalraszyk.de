@@ -22,6 +22,7 @@ audio, canvas, video {
 }
 
 /*
+
 * Prevents modern browsers from displaying `audio` without controls.
 * Remove excess height in iOS 5 devices.
 */
@@ -449,10 +450,10 @@ p {
     line-height: 25px;
 }
 a {
-    color: #4cb8c4
+    color: #FF5D3A
 }
 a:hover, a:focus {
-    color: #4cb8c4;
+    color: #FF5D3A;
     text-decoration: none;
 }
 .texture-overlay {
@@ -461,13 +462,20 @@ a:hover, a:focus {
     left: 0px;
     width: 100%;
     height: 100%;
-background: rgba(0,0,0,.4);
+    background: rgba(0,0,0,.4);
+    display:none;
 
 }
 header {
-    background: #222;
     max-height: 80px;
     overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    z-index: 10;
+    background: #000;;;;;
 
 }
 .showcase {
@@ -475,6 +483,22 @@ header {
     color: #000;
 }
 
+.navigation-bar { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: all linear 0.3s;
+
+    z-index: 20;
+    height: 80px;
+    color: #fff; 
+    background-color: transparent;
+}
+
+.parallax {
+    position: relative;
+}
 /* ==========================================================================
 Buttons
 ========================================================================== */
@@ -487,23 +511,46 @@ Buttons
     color: #4b98a9;
     font-size: 16px;
 }
+.skew {
+  -moz-transform: skew(-30deg, 0deg);
+  -ms-transform: skew(-30deg, 0deg);
+  -o-transform: skew(-30deg, 0deg);
+  -moz-transition: all 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+  -ms-transition: all 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+  -o-transition: all 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+  transition: all 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.showcase-wrap {
+    background-image: url("/img/image_1.jpg");
+    background-size:cover;
+}
+
 .use-btn:hover, .use-btn:focus {
-    background-color: #4cb8c4;
+    background-color: #FF5D3A;
     color: #fff;
     text-decoration: none;
 }
 .learn-btn, .download-btn {
     display: inline-block;
     padding: 18px 46px;
-    border: 2px solid #fff;
+    border: 2px solid rgba(255,255,255,.8);
     border-radius: 3px;
     color: #fff;
-    font-size: 16px;
+    font-size: 28px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 .learn-btn:hover, .download-btn:hover, .learn-btn:focus, .download-btn:focus {
-    border-color: #4cb8c4;
-    color: #4cb8c4;
+    border-color: #FF5D3A;
+    color: #fff;
     text-decoration: none;
+    background-color: #FF5D3A;
 }
 .read-more-btn {
     display: inline-block;
@@ -512,7 +559,12 @@ Buttons
     font-weight: 400;
 }
 .read-more-btn i, .download-btn i {
-    margin-left: 5px
+    margin-left: 10px;
+    float: right;
+    margin-top: 6px;;
+}
+.section-video {
+
 }
 .showcase .download-btn {
     margin-top: 50px
@@ -526,7 +578,7 @@ Navigation
 ========================================================================== */
 .navigation-bar {
     padding-top: 18px;
-    background: transparent;
+
 
 }
 
@@ -535,7 +587,7 @@ Navigation
     width: 100%;
     padding: 25px;
     margin: 0;
-    background: #4cb8c4;
+    background: #FF5D3A;
 
 }
 
@@ -664,11 +716,11 @@ section.video a {
     color: #323a45
 }
 section.video a:hover, section.video a:focus {
-    color: #4cb8c4;
+    color: #FF5D3A;
     text-decoration: none;
 }
 section.video a:hover i, section.video a:focus i {
-    color: #4cb8c4
+    color: #FF5D3A
 }
 
 /* ==========================================================================
@@ -681,12 +733,12 @@ Custom Slider Controls (Flickity)
     position: relative;
     top: 10px;
     background: transparent;
-    border: 2px solid #4cb8c4;
+    border: 2px solid #FF5D3A;
     -webkit-transition: background 0.3s;
     transition: background 0.3s;
 }
 .flickity-page-dots .dot.is-selected {
-    background: #4cb8c4;
+    background: #FF5D3A;
 }
 
 /* ==========================================================================
@@ -748,7 +800,8 @@ Features Slider
 Features List
 ========================================================================== */
 .features-list {
-    padding: 130px 0
+    padding: 130px 0;
+    padding-top: 180px;
 }
 .features-list h1 {
     margin: 0 0 10px 0;
@@ -786,6 +839,7 @@ section {
 }
 section.parallax {
     box-shadow: none;
+    padding-bottom: 30px;;
 }
 /* ==========================================================================
 Blockquote
@@ -827,11 +881,15 @@ Showcase
     margin: 0 0 20px 0;
     color: #fff;
     font-weight: 400;
-    font-size: 22px;
+    font-size: 36px;
+    text-shadow: none;
 }
 .showcase p {
     margin-bottom: 25px;
     color: #fff;
+    text-shadow: none;
+    padding-right: 30px;
+    font-size: 14px;
 }
 .device {
     position: absolute;
@@ -856,8 +914,39 @@ Showcase
 .showcase-wrap {
     position: relative;
     padding: 100px 0;
-    min-height: 600px;
+    color: #fff;
+    text-align: center;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 150px;
+    min-height: 570px;
 }
+
+@media screen and (max-width: 991px) {
+    .section-red {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    footer {
+        padding-top:30px !important;
+    }
+    .features-list {
+        text-align: center;
+        padding: 0;
+    }
+    .dropshadow p {
+    width: 100% !important;
+    }
+    .showcase-wrap {
+    padding-top: 100px;
+    padding-bottom: 0;
+
+    }
+    .download-btn {
+        margin-top: 30px !important;
+    }
+}
+
 .showcase-slider ul {
     margin: 0;
     padding: 0;
@@ -865,6 +954,10 @@ Showcase
 }
 .showcase-slider .flickity-page-dots {
     bottom: 20px;
+}
+.download a {
+    color: #fff;
+    border-color: #fff;
 }
 
 /* ==========================================================================
@@ -904,6 +997,10 @@ Screenshots
     position: relative;
     overflow: hidden;
         padding: 30px;
+}
+
+@media screen and (max-width:991px) {
+
 }
 .screenshots figure svg {
     width: 50%;
@@ -1038,7 +1135,7 @@ Nav Overlay
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(52, 82, 113, 0.95);
+    background: rgba(255, 92, 58, 0.48);;
 }
 
 /* Menu style */
@@ -1076,10 +1173,10 @@ Nav Overlay
     display: block;
     padding: 50px 0;
     min-width: 190px;
-    border: 2px solid #fff;
-    border-radius: 3px;
-    background-color: #345271;
-    color: #fff;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;;
+    color: #FF5D3A;
     text-transform: uppercase;
     font-weight: 400;
     font-size: 15px;
@@ -1087,8 +1184,9 @@ Nav Overlay
     transition: all 300ms ease-in-out;
 }
 .overlay ul li a:hover, .overlay ul li a:focus {
-    border-color: #4cb8c4;
-    color: #4cb8c4;
+    border-color: #FF5D3A;
+    color: #fff;
+    background: #FF5D3A;
 }
 
 /* Effects */
@@ -1185,8 +1283,8 @@ Waypoints
 
 }
 .social-media a:hover {
-    color: #4cb8c4;
-    text-shadow: 0 0 15px #4cb8c4;
+    color: #FF5D3A;
+    text-shadow: 0 0 15px #FF5D3A;
 }
 
 .social-media i{
@@ -1194,5 +1292,253 @@ Waypoints
 
     margin: 65px;
     margin-bottom: 10px;
- 
+}
+
+.quotes {
+    background-image: url("/img/teaser_2.jpg");
+    background-size: cover;
+    display: none;
+}
+
+.download {
+    background-size: cover;
+    padding-top: 0;
+}
+
+canvas {
+    height: 100%;
+    position: absolute;
+    right: 0;
+    left: 0;
+    width: 100%;
+}
+
+.dropshadow {
+    padding-top: 30px;
+}
+
+
+/** animate stars */
+#stars {
+  width: 1px;
+  height: 1px;
+  margin-left: 25%;
+  background: transparent;
+  box-shadow: 899px 14px #FFF , 2356px 2332px #FFF , 1881px 27px #FFF , 1504px 2268px #FFF , 1547px 1980px #FFF , 2369px 761px #FFF , 954px 426px #FFF , 2135px 1221px #FFF , 720px 483px #FFF , 2251px 764px #FFF , 2317px 2026px #FFF , 403px 348px #FFF , 1491px 1405px #FFF , 308px 57px #FFF , 793px 69px #FFF , 1716px 2373px #FFF , 157px 2162px #FFF , 1254px 1373px #FFF , 988px 1833px #FFF , 805px 515px #FFF , 1820px 1443px #FFF , 1696px 65px #FFF , 311px 876px #FFF , 1322px 1500px #FFF , 877px 2398px #FFF , 1796px 2356px #FFF , 1149px 518px #FFF , 1532px 1766px #FFF , 1005px 957px #FFF , 2278px 805px #FFF , 2418px 1142px #FFF , 176px 2303px #FFF , 1741px 75px #FFF , 545px 2410px #FFF , 707px 611px #FFF , 1387px 1759px #FFF , 1397px 2486px #FFF , 1815px 785px #FFF , 2412px 20px #FFF , 2195px 1637px #FFF , 1959px 963px #FFF , 880px 1400px #FFF , 1034px 1339px #FFF , 509px 215px #FFF , 1496px 2124px #FFF , 2049px 2354px #FFF , 2030px 457px #FFF , 5px 833px #FFF , 640px 1458px #FFF , 836px 1667px #FFF , 2119px 91px #FFF , 1526px 1917px #FFF , 1377px 1932px #FFF , 701px 495px #FFF , 84px 998px #FFF , 138px 1159px #FFF , 1885px 368px #FFF , 786px 1628px #FFF , 1241px 1705px #FFF , 2399px 1976px #FFF , 2089px 1622px #FFF , 1274px 1513px #FFF , 1328px 2010px #FFF , 1533px 2381px #FFF , 305px 1655px #FFF , 1064px 1064px #FFF , 1964px 1194px #FFF , 128px 1480px #FFF , 1855px 1650px #FFF , 1452px 2398px #FFF , 1565px 374px #FFF , 96px 1517px #FFF , 796px 57px #FFF , 822px 1777px #FFF , 2401px 69px #FFF , 298px 1799px #FFF , 717px 289px #FFF , 851px 160px #FFF , 1529px 2144px #FFF , 1950px 871px #FFF , 173px 1205px #FFF , 1206px 861px #FFF , 1673px 2463px #FFF , 982px 2054px #FFF , 2343px 2358px #FFF , 1045px 1770px #FFF , 32px 1280px #FFF , 749px 135px #FFF , 1338px 1694px #FFF , 2437px 619px #FFF , 1328px 99px #FFF , 1201px 1508px #FFF , 2053px 1436px #FFF , 1083px 1006px #FFF , 2276px 1241px #FFF , 737px 809px #FFF , 437px 677px #FFF , 1378px 1195px #FFF , 414px 1761px #FFF , 1543px 1171px #FFF , 1352px 2162px #FFF , 2458px 2427px #FFF , 367px 903px #FFF , 2490px 1226px #FFF , 1941px 985px #FFF , 1216px 208px #FFF , 258px 2454px #FFF , 2147px 2397px #FFF , 671px 1211px #FFF , 1704px 125px #FFF , 2423px 1147px #FFF , 516px 1839px #FFF , 2042px 482px #FFF , 333px 1887px #FFF , 1752px 2050px #FFF , 2460px 1167px #FFF , 1476px 1555px #FFF , 1746px 626px #FFF , 913px 133px #FFF , 2274px 227px #FFF , 1004px 2120px #FFF , 3px 1901px #FFF , 1909px 2367px #FFF , 1856px 548px #FFF , 1070px 1755px #FFF , 2274px 1420px #FFF , 1156px 1240px #FFF , 1628px 1546px #FFF , 957px 1635px #FFF , 2359px 810px #FFF , 1044px 2069px #FFF , 990px 2157px #FFF , 2401px 1351px #FFF , 1846px 672px #FFF , 1698px 1381px #FFF , 1281px 2234px #FFF , 2161px 870px #FFF , 261px 747px #FFF , 1254px 1862px #FFF , 1728px 1878px #FFF , 1720px 2183px #FFF , 546px 1816px #FFF , 1747px 1731px #FFF , 1976px 1487px #FFF , 341px 432px #FFF , 338px 1121px #FFF , 1318px 955px #FFF , 672px 1447px #FFF , 1383px 109px #FFF , 308px 2407px #FFF , 2238px 2344px #FFF , 367px 935px #FFF , 1350px 1669px #FFF , 1003px 1673px #FFF , 657px 1268px #FFF , 1570px 4px #FFF , 1106px 1084px #FFF , 606px 152px #FFF , 1277px 2465px #FFF , 445px 471px #FFF , 2043px 1683px #FFF , 1662px 2292px #FFF , 283px 2103px #FFF , 1222px 1327px #FFF , 121px 1511px #FFF , 141px 293px #FFF , 1088px 1489px #FFF , 800px 1097px #FFF , 1415px 1559px #FFF , 2433px 886px #FFF , 471px 1150px #FFF , 1435px 824px #FFF , 112px 2251px #FFF , 2398px 167px #FFF , 2055px 1698px #FFF , 1487px 759px #FFF , 324px 1536px #FFF , 664px 1649px #FFF , 670px 979px #FFF , 1055px 1147px #FFF , 1731px 164px #FFF , 1486px 354px #FFF , 2398px 1042px #FFF , 1837px 1587px #FFF , 1831px 2403px #FFF , 2127px 2122px #FFF , 609px 276px #FFF , 1369px 892px #FFF , 706px 176px #FFF , 2181px 2189px #FFF , 265px 1042px #FFF , 1817px 233px #FFF , 2025px 2018px #FFF , 1021px 1577px #FFF , 2089px 2257px #FFF , 1501px 1108px #FFF , 2159px 2184px #FFF , 63px 765px #FFF , 319px 239px #FFF , 1896px 318px #FFF , 165px 2096px #FFF , 1760px 1638px #FFF , 1963px 797px #FFF , 189px 1090px #FFF , 2478px 1468px #FFF , 2474px 1027px #FFF , 1670px 2209px #FFF , 1791px 41px #FFF , 2082px 64px #FFF , 258px 1539px #FFF , 2199px 648px #FFF , 985px 564px #FFF , 37px 1929px #FFF , 1490px 419px #FFF , 116px 637px #FFF , 1663px 1133px #FFF , 1530px 1006px #FFF , 297px 1784px #FFF , 229px 1262px #FFF , 1047px 1748px #FFF , 1677px 1723px #FFF , 258px 2302px #FFF , 648px 1988px #FFF , 1597px 517px #FFF , 1246px 2410px #FFF , 1529px 707px #FFF , 1770px 1407px #FFF , 2079px 422px #FFF , 1357px 754px #FFF , 418px 1022px #FFF , 1178px 1786px #FFF , 1624px 304px #FFF , 2480px 633px #FFF , 1494px 698px #FFF , 1961px 1984px #FFF , 2477px 1647px #FFF , 726px 1418px #FFF , 2254px 1846px #FFF , 229px 1693px #FFF , 104px 1443px #FFF , 2219px 2000px #FFF , 370px 2195px #FFF , 2126px 478px #FFF , 561px 2386px #FFF , 725px 1346px #FFF , 2381px 418px #FFF , 1297px 662px #FFF , 880px 587px #FFF , 948px 375px #FFF , 418px 823px #FFF , 632px 309px #FFF , 1034px 996px #FFF , 1029px 1186px #FFF , 2475px 1278px #FFF , 1717px 1134px #FFF , 2102px 2469px #FFF , 1058px 324px #FFF , 935px 2238px #FFF , 1399px 1779px #FFF , 308px 2363px #FFF , 2462px 1113px #FFF , 882px 1915px #FFF , 1889px 2326px #FFF , 779px 55px #FFF , 1161px 252px #FFF , 1220px 1610px #FFF , 2151px 1445px #FFF , 1819px 2066px #FFF , 92px 2142px #FFF , 666px 2262px #FFF , 2152px 506px #FFF , 1100px 2250px #FFF , 154px 1492px #FFF , 1547px 1064px #FFF , 560px 1698px #FFF , 2268px 1939px #FFF , 2182px 1155px #FFF , 1623px 2476px #FFF , 1860px 2148px #FFF , 821px 1060px #FFF , 47px 1960px #FFF , 272px 2104px #FFF , 2226px 626px #FFF , 2389px 1237px #FFF , 1476px 1258px #FFF , 1287px 1700px #FFF , 1201px 2456px #FFF , 286px 402px #FFF , 2067px 2px #FFF , 1593px 580px #FFF , 2242px 2265px #FFF , 2259px 1016px #FFF , 2473px 1456px #FFF , 91px 2282px #FFF , 304px 296px #FFF , 1609px 1988px #FFF , 1176px 1560px #FFF , 1300px 1070px #FFF , 2336px 2079px #FFF , 69px 1151px #FFF , 65px 528px #FFF , 1327px 762px #FFF , 1321px 1704px #FFF , 1101px 335px #FFF , 1915px 2119px #FFF , 1079px 1604px #FFF , 1289px 1302px #FFF , 2094px 1371px #FFF , 1168px 493px #FFF , 1071px 173px #FFF , 145px 2230px #FFF , 764px 2331px #FFF , 2089px 701px #FFF , 1451px 1445px #FFF , 64px 1071px #FFF , 2236px 1535px #FFF , 983px 2487px #FFF , 266px 75px #FFF , 1771px 1050px #FFF , 1502px 631px #FFF , 506px 1754px #FFF , 1000px 26px #FFF , 1422px 533px #FFF , 541px 1601px #FFF , 156px 83px #FFF , 1973px 1395px #FFF , 250px 2190px #FFF , 1771px 2193px #FFF , 912px 785px #FFF , 162px 1740px #FFF , 1348px 1416px #FFF , 2290px 1752px #FFF , 975px 1779px #FFF , 1105px 1058px #FFF , 641px 2317px #FFF , 63px 1419px #FFF , 1518px 1757px #FFF , 1787px 1659px #FFF , 5px 474px #FFF , 816px 2250px #FFF , 413px 2164px #FFF , 2356px 831px #FFF , 2021px 2233px #FFF , 1988px 167px #FFF , 208px 490px #FFF , 620px 1470px #FFF , 381px 26px #FFF , 1425px 660px #FFF , 1989px 1091px #FFF , 1015px 451px #FFF , 2036px 182px #FFF , 1697px 2165px #FFF , 2011px 1585px #FFF , 550px 1221px #FFF , 602px 2254px #FFF , 210px 81px #FFF , 2033px 957px #FFF , 119px 2273px #FFF , 864px 1904px #FFF , 2139px 1751px #FFF , 1851px 406px #FFF , 1855px 1031px #FFF , 629px 61px #FFF , 96px 1762px #FFF , 1235px 387px #FFF , 1381px 1725px #FFF , 845px 1934px #FFF , 1845px 1920px #FFF , 1208px 1250px #FFF , 657px 979px #FFF , 758px 1610px #FFF , 898px 2395px #FFF , 973px 786px #FFF , 2152px 1629px #FFF , 1086px 329px #FFF , 1845px 2363px #FFF , 560px 798px #FFF , 53px 1671px #FFF , 2367px 2022px #FFF , 2390px 1369px #FFF , 2391px 878px #FFF , 1276px 1126px #FFF , 112px 2088px #FFF , 13px 12px #FFF , 2031px 1516px #FFF , 2371px 1012px #FFF , 975px 1376px #FFF , 585px 2265px #FFF , 1967px 1539px #FFF , 2054px 240px #FFF , 654px 137px #FFF , 653px 1857px #FFF , 1513px 1673px #FFF , 142px 75px #FFF , 1215px 613px #FFF , 1593px 1069px #FFF , 1446px 2480px #FFF , 649px 1036px #FFF , 1092px 2062px #FFF , 195px 1030px #FFF , 642px 52px #FFF , 1864px 1748px #FFF , 1639px 931px #FFF , 117px 1140px #FFF , 2373px 501px #FFF , 2090px 2261px #FFF , 505px 1253px #FFF , 114px 1750px #FFF , 1012px 1875px #FFF , 109px 136px #FFF , 126px 1289px #FFF , 1521px 2241px #FFF , 580px 1565px #FFF , 1337px 1355px #FFF , 665px 207px #FFF , 1726px 1218px #FFF , 678px 971px #FFF , 2476px 1244px #FFF , 366px 233px #FFF , 851px 1484px #FFF , 495px 1886px #FFF , 670px 173px #FFF , 1980px 1662px #FFF , 2278px 1263px #FFF , 1858px 1627px #FFF , 376px 347px #FFF , 2245px 2036px #FFF , 11px 725px #FFF , 824px 33px #FFF , 2300px 1353px #FFF , 608px 923px #FFF , 1145px 2353px #FFF , 127px 145px #FFF , 1612px 1066px #FFF , 2254px 457px #FFF , 18px 1573px #FFF , 1131px 1278px #FFF , 1276px 2301px #FFF , 1039px 1822px #FFF , 851px 273px #FFF , 2014px 579px #FFF , 2045px 875px #FFF , 1926px 172px #FFF , 2417px 1749px #FFF , 192px 682px #FFF , 2482px 753px #FFF , 2438px 135px #FFF , 2269px 790px #FFF , 763px 31px #FFF , 1917px 348px #FFF , 1800px 362px #FFF , 885px 2457px #FFF , 2498px 2058px #FFF , 2106px 851px #FFF , 557px 772px #FFF , 2266px 1988px #FFF , 140px 1751px #FFF , 109px 1655px #FFF , 2024px 813px #FFF , 394px 1263px #FFF , 2143px 1181px #FFF , 1035px 478px #FFF , 1906px 692px #FFF , 1342px 454px #FFF , 248px 1402px #FFF , 102px 882px #FFF , 404px 489px #FFF , 203px 2082px #FFF , 1401px 887px #FFF , 2296px 1402px #FFF , 469px 131px #FFF , 1573px 1120px #FFF , 1683px 963px #FFF , 849px 2063px #FFF , 874px 9px #FFF , 1269px 1594px #FFF , 1355px 67px #FFF , 130px 2096px #FFF , 85px 1104px #FFF , 290px 639px #FFF , 2308px 568px #FFF , 1619px 965px #FFF , 1636px 1032px #FFF , 68px 93px #FFF , 592px 1485px #FFF , 2032px 223px #FFF , 2394px 1565px #FFF , 1409px 1321px #FFF , 1435px 1328px #FFF , 91px 383px #FFF , 1381px 1209px #FFF , 114px 2445px #FFF , 710px 2106px #FFF , 1257px 1702px #FFF , 208px 2214px #FFF , 2349px 1287px #FFF , 745px 2227px #FFF , 205px 1769px #FFF , 1556px 959px #FFF , 1317px 1582px #FFF , 259px 5px #FFF , 81px 1262px #FFF , 1961px 1718px #FFF , 593px 343px #FFF , 661px 119px #FFF , 1357px 263px #FFF , 504px 1924px #FFF , 2280px 797px #FFF , 2066px 2258px #FFF , 2107px 2291px #FFF , 1988px 1992px #FFF , 1262px 1278px #FFF , 1543px 1314px #FFF , 159px 1655px #FFF , 1456px 663px #FFF , 1865px 1143px #FFF , 1782px 566px #FFF , 1892px 946px #FFF , 129px 2341px #FFF , 1305px 794px #FFF , 793px 2178px #FFF , 730px 1119px #FFF , 1156px 1557px #FFF , 1106px 704px #FFF , 2270px 593px #FFF , 1672px 395px #FFF , 598px 356px #FFF , 1694px 391px #FFF , 1828px 1401px #FFF , 1242px 904px #FFF , 44px 1733px #FFF , 154px 202px #FFF , 774px 2097px #FFF , 825px 1765px #FFF , 1647px 1073px #FFF , 2398px 2161px #FFF , 2218px 1794px #FFF , 716px 1761px #FFF , 2436px 808px #FFF , 1472px 136px #FFF , 2087px 2342px #FFF , 521px 1720px #FFF , 1003px 2079px #FFF , 435px 274px #FFF , 1701px 1195px #FFF , 2119px 1289px #FFF , 1150px 1361px #FFF , 2029px 1919px #FFF , 366px 111px #FFF , 1934px 350px #FFF , 994px 1181px #FFF , 530px 1177px #FFF , 2216px 14px #FFF , 830px 1050px #FFF , 766px 2120px #FFF , 1876px 1725px #FFF , 242px 1897px #FFF , 1041px 25px #FFF , 1018px 1625px #FFF , 652px 638px #FFF , 1445px 488px #FFF , 2304px 2205px #FFF , 1312px 237px #FFF , 1469px 1130px #FFF , 323px 2364px #FFF , 325px 1120px #FFF , 2395px 372px #FFF , 427px 2215px #FFF , 1806px 164px #FFF , 955px 1159px #FFF , 1157px 2209px #FFF , 1483px 2040px #FFF , 2481px 1794px #FFF , 763px 872px #FFF , 1334px 1494px #FFF , 504px 240px #FFF , 893px 2119px #FFF , 856px 437px #FFF , 707px 1828px #FFF , 1394px 296px #FFF , 1467px 2361px #FFF , 706px 302px #FFF , 1234px 249px #FFF , 334px 1904px #FFF , 9px 2144px #FFF , 2084px 1129px #FFF , 297px 691px #FFF , 413px 1131px #FFF , 971px 1341px #FFF , 1746px 235px #FFF , 7px 1593px #FFF , 1486px 1223px #FFF , 845px 451px #FFF , 1883px 2276px #FFF , 2235px 308px #FFF , 345px 343px #FFF , 1416px 1623px #FFF , 648px 559px #FFF , 1300px 2389px #FFF , 2446px 2443px #FFF , 1004px 1612px #FFF , 2381px 547px #FFF , 1478px 1208px #FFF , 1544px 706px #FFF , 263px 845px #FFF , 1140px 542px #FFF , 2093px 1014px #FFF , 2008px 957px #FFF , 1489px 647px #FFF , 609px 363px #FFF , 250px 1270px #FFF , 677px 1933px #FFF , 1033px 1821px #FFF , 1646px 2277px #FFF , 1668px 580px #FFF , 2468px 1784px #FFF , 1960px 1264px #FFF , 1338px 2408px #FFF , 835px 278px #FFF , 2074px 285px #FFF , 1570px 661px #FFF , 1314px 954px #FFF , 444px 301px #FFF , 469px 561px #FFF , 840px 1587px #FFF , 133px 738px #FFF , 1866px 1988px #FFF , 997px 400px #FFF , 866px 2170px #FFF , 838px 2203px #FFF , 1867px 2090px #FFF , 745px 920px #FFF , 252px 1579px #FFF , 1077px 569px #FFF , 113px 1482px #FFF , 455px 838px #FFF , 1537px 1900px #FFF , 1965px 1777px #FFF , 584px 2494px #FFF , 162px 1387px #FFF , 1752px 1465px #FFF , 1616px 1024px #FFF , 1003px 1347px #FFF , 588px 413px #FFF , 1608px 104px #FFF , 599px 506px #FFF , 661px 805px #FFF , 1212px 1027px #FFF , 458px 912px #FFF , 515px 876px #FFF , 1977px 1187px #FFF , 1603px 1831px #FFF , 12px 2206px #FFF , 158px 2489px #FFF , 287px 1594px #FFF , 861px 1462px #FFF , 2202px 1652px #FFF , 1182px 931px #FFF , 578px 2176px #FFF , 775px 345px #FFF , 418px 1181px #FFF , 1122px 2182px #FFF , 446px 103px #FFF , 1753px 14px #FFF , 578px 2274px #FFF , 1753px 1398px #FFF , 2115px 1082px #FFF , 2394px 1477px #FFF , 409px 13px #FFF , 2422px 772px #FFF , 2081px 2278px #FFF , 1409px 836px #FFF , 242px 2263px #FFF , 437px 2085px #FFF , 1489px 385px #FFF , 1586px 1571px #FFF , 2424px 1477px #FFF , 1586px 1771px #FFF , 2312px 1935px #FFF , 684px 2461px #FFF , 987px 2163px #FFF , 2366px 980px #FFF , 1666px 342px #FFF , 116px 844px #FFF , 1764px 2261px #FFF , 1025px 330px #FFF , 1470px 2046px #FFF , 1735px 1767px #FFF , 1992px 1476px #FFF , 1699px 2137px #FFF , 2249px 1990px #FFF , 1477px 1724px #FFF , 1152px 1902px #FFF , 1044px 129px #FFF , 657px 426px #FFF , 267px 1548px #FFF , 1062px 878px #FFF , 1498px 1284px #FFF , 835px 73px #FFF , 1439px 1590px #FFF;
+  -webkit-animation: animStar 50s infinite linear;
+  -moz-animation: animStar 50s infinite linear;
+  animation: animStar 50s infinite linear;
+}
+#stars:after {
+  content: " ";
+  position: absolute;
+  top: 2000px;
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  box-shadow: 899px 14px #FFF , 2356px 2332px #FFF , 1881px 27px #FFF , 1504px 2268px #FFF , 1547px 1980px #FFF , 2369px 761px #FFF , 954px 426px #FFF , 2135px 1221px #FFF , 720px 483px #FFF , 2251px 764px #FFF , 2317px 2026px #FFF , 403px 348px #FFF , 1491px 1405px #FFF , 308px 57px #FFF , 793px 69px #FFF , 1716px 2373px #FFF , 157px 2162px #FFF , 1254px 1373px #FFF , 988px 1833px #FFF , 805px 515px #FFF , 1820px 1443px #FFF , 1696px 65px #FFF , 311px 876px #FFF , 1322px 1500px #FFF , 877px 2398px #FFF , 1796px 2356px #FFF , 1149px 518px #FFF , 1532px 1766px #FFF , 1005px 957px #FFF , 2278px 805px #FFF , 2418px 1142px #FFF , 176px 2303px #FFF , 1741px 75px #FFF , 545px 2410px #FFF , 707px 611px #FFF , 1387px 1759px #FFF , 1397px 2486px #FFF , 1815px 785px #FFF , 2412px 20px #FFF , 2195px 1637px #FFF , 1959px 963px #FFF , 880px 1400px #FFF , 1034px 1339px #FFF , 509px 215px #FFF , 1496px 2124px #FFF , 2049px 2354px #FFF , 2030px 457px #FFF , 5px 833px #FFF , 640px 1458px #FFF , 836px 1667px #FFF , 2119px 91px #FFF , 1526px 1917px #FFF , 1377px 1932px #FFF , 701px 495px #FFF , 84px 998px #FFF , 138px 1159px #FFF , 1885px 368px #FFF , 786px 1628px #FFF , 1241px 1705px #FFF , 2399px 1976px #FFF , 2089px 1622px #FFF , 1274px 1513px #FFF , 1328px 2010px #FFF , 1533px 2381px #FFF , 305px 1655px #FFF , 1064px 1064px #FFF , 1964px 1194px #FFF , 128px 1480px #FFF , 1855px 1650px #FFF , 1452px 2398px #FFF , 1565px 374px #FFF , 96px 1517px #FFF , 796px 57px #FFF , 822px 1777px #FFF , 2401px 69px #FFF , 298px 1799px #FFF , 717px 289px #FFF , 851px 160px #FFF , 1529px 2144px #FFF , 1950px 871px #FFF , 173px 1205px #FFF , 1206px 861px #FFF , 1673px 2463px #FFF , 982px 2054px #FFF , 2343px 2358px #FFF , 1045px 1770px #FFF , 32px 1280px #FFF , 749px 135px #FFF , 1338px 1694px #FFF , 2437px 619px #FFF , 1328px 99px #FFF , 1201px 1508px #FFF , 2053px 1436px #FFF , 1083px 1006px #FFF , 2276px 1241px #FFF , 737px 809px #FFF , 437px 677px #FFF , 1378px 1195px #FFF , 414px 1761px #FFF , 1543px 1171px #FFF , 1352px 2162px #FFF , 2458px 2427px #FFF , 367px 903px #FFF , 2490px 1226px #FFF , 1941px 985px #FFF , 1216px 208px #FFF , 258px 2454px #FFF , 2147px 2397px #FFF , 671px 1211px #FFF , 1704px 125px #FFF , 2423px 1147px #FFF , 516px 1839px #FFF , 2042px 482px #FFF , 333px 1887px #FFF , 1752px 2050px #FFF , 2460px 1167px #FFF , 1476px 1555px #FFF , 1746px 626px #FFF , 913px 133px #FFF , 2274px 227px #FFF , 1004px 2120px #FFF , 3px 1901px #FFF , 1909px 2367px #FFF , 1856px 548px #FFF , 1070px 1755px #FFF , 2274px 1420px #FFF , 1156px 1240px #FFF , 1628px 1546px #FFF , 957px 1635px #FFF , 2359px 810px #FFF , 1044px 2069px #FFF , 990px 2157px #FFF , 2401px 1351px #FFF , 1846px 672px #FFF , 1698px 1381px #FFF , 1281px 2234px #FFF , 2161px 870px #FFF , 261px 747px #FFF , 1254px 1862px #FFF , 1728px 1878px #FFF , 1720px 2183px #FFF , 546px 1816px #FFF , 1747px 1731px #FFF , 1976px 1487px #FFF , 341px 432px #FFF , 338px 1121px #FFF , 1318px 955px #FFF , 672px 1447px #FFF , 1383px 109px #FFF , 308px 2407px #FFF , 2238px 2344px #FFF , 367px 935px #FFF , 1350px 1669px #FFF , 1003px 1673px #FFF , 657px 1268px #FFF , 1570px 4px #FFF , 1106px 1084px #FFF , 606px 152px #FFF , 1277px 2465px #FFF , 445px 471px #FFF , 2043px 1683px #FFF , 1662px 2292px #FFF , 283px 2103px #FFF , 1222px 1327px #FFF , 121px 1511px #FFF , 141px 293px #FFF , 1088px 1489px #FFF , 800px 1097px #FFF , 1415px 1559px #FFF , 2433px 886px #FFF , 471px 1150px #FFF , 1435px 824px #FFF , 112px 2251px #FFF , 2398px 167px #FFF , 2055px 1698px #FFF , 1487px 759px #FFF , 324px 1536px #FFF , 664px 1649px #FFF , 670px 979px #FFF , 1055px 1147px #FFF , 1731px 164px #FFF , 1486px 354px #FFF , 2398px 1042px #FFF , 1837px 1587px #FFF , 1831px 2403px #FFF , 2127px 2122px #FFF , 609px 276px #FFF , 1369px 892px #FFF , 706px 176px #FFF , 2181px 2189px #FFF , 265px 1042px #FFF , 1817px 233px #FFF , 2025px 2018px #FFF , 1021px 1577px #FFF , 2089px 2257px #FFF , 1501px 1108px #FFF , 2159px 2184px #FFF , 63px 765px #FFF , 319px 239px #FFF , 1896px 318px #FFF , 165px 2096px #FFF , 1760px 1638px #FFF , 1963px 797px #FFF , 189px 1090px #FFF , 2478px 1468px #FFF , 2474px 1027px #FFF , 1670px 2209px #FFF , 1791px 41px #FFF , 2082px 64px #FFF , 258px 1539px #FFF , 2199px 648px #FFF , 985px 564px #FFF , 37px 1929px #FFF , 1490px 419px #FFF , 116px 637px #FFF , 1663px 1133px #FFF , 1530px 1006px #FFF , 297px 1784px #FFF , 229px 1262px #FFF , 1047px 1748px #FFF , 1677px 1723px #FFF , 258px 2302px #FFF , 648px 1988px #FFF , 1597px 517px #FFF , 1246px 2410px #FFF , 1529px 707px #FFF , 1770px 1407px #FFF , 2079px 422px #FFF , 1357px 754px #FFF , 418px 1022px #FFF , 1178px 1786px #FFF , 1624px 304px #FFF , 2480px 633px #FFF , 1494px 698px #FFF , 1961px 1984px #FFF , 2477px 1647px #FFF , 726px 1418px #FFF , 2254px 1846px #FFF , 229px 1693px #FFF , 104px 1443px #FFF , 2219px 2000px #FFF , 370px 2195px #FFF , 2126px 478px #FFF , 561px 2386px #FFF , 725px 1346px #FFF , 2381px 418px #FFF , 1297px 662px #FFF , 880px 587px #FFF , 948px 375px #FFF , 418px 823px #FFF , 632px 309px #FFF , 1034px 996px #FFF , 1029px 1186px #FFF , 2475px 1278px #FFF , 1717px 1134px #FFF , 2102px 2469px #FFF , 1058px 324px #FFF , 935px 2238px #FFF , 1399px 1779px #FFF , 308px 2363px #FFF , 2462px 1113px #FFF , 882px 1915px #FFF , 1889px 2326px #FFF , 779px 55px #FFF , 1161px 252px #FFF , 1220px 1610px #FFF , 2151px 1445px #FFF , 1819px 2066px #FFF , 92px 2142px #FFF , 666px 2262px #FFF , 2152px 506px #FFF , 1100px 2250px #FFF , 154px 1492px #FFF , 1547px 1064px #FFF , 560px 1698px #FFF , 2268px 1939px #FFF , 2182px 1155px #FFF , 1623px 2476px #FFF , 1860px 2148px #FFF , 821px 1060px #FFF , 47px 1960px #FFF , 272px 2104px #FFF , 2226px 626px #FFF , 2389px 1237px #FFF , 1476px 1258px #FFF , 1287px 1700px #FFF , 1201px 2456px #FFF , 286px 402px #FFF , 2067px 2px #FFF , 1593px 580px #FFF , 2242px 2265px #FFF , 2259px 1016px #FFF , 2473px 1456px #FFF , 91px 2282px #FFF , 304px 296px #FFF , 1609px 1988px #FFF , 1176px 1560px #FFF , 1300px 1070px #FFF , 2336px 2079px #FFF , 69px 1151px #FFF , 65px 528px #FFF , 1327px 762px #FFF , 1321px 1704px #FFF , 1101px 335px #FFF , 1915px 2119px #FFF , 1079px 1604px #FFF , 1289px 1302px #FFF , 2094px 1371px #FFF , 1168px 493px #FFF , 1071px 173px #FFF , 145px 2230px #FFF , 764px 2331px #FFF , 2089px 701px #FFF , 1451px 1445px #FFF , 64px 1071px #FFF , 2236px 1535px #FFF , 983px 2487px #FFF , 266px 75px #FFF , 1771px 1050px #FFF , 1502px 631px #FFF , 506px 1754px #FFF , 1000px 26px #FFF , 1422px 533px #FFF , 541px 1601px #FFF , 156px 83px #FFF , 1973px 1395px #FFF , 250px 2190px #FFF , 1771px 2193px #FFF , 912px 785px #FFF , 162px 1740px #FFF , 1348px 1416px #FFF , 2290px 1752px #FFF , 975px 1779px #FFF , 1105px 1058px #FFF , 641px 2317px #FFF , 63px 1419px #FFF , 1518px 1757px #FFF , 1787px 1659px #FFF , 5px 474px #FFF , 816px 2250px #FFF , 413px 2164px #FFF , 2356px 831px #FFF , 2021px 2233px #FFF , 1988px 167px #FFF , 208px 490px #FFF , 620px 1470px #FFF , 381px 26px #FFF , 1425px 660px #FFF , 1989px 1091px #FFF , 1015px 451px #FFF , 2036px 182px #FFF , 1697px 2165px #FFF , 2011px 1585px #FFF , 550px 1221px #FFF , 602px 2254px #FFF , 210px 81px #FFF , 2033px 957px #FFF , 119px 2273px #FFF , 864px 1904px #FFF , 2139px 1751px #FFF , 1851px 406px #FFF , 1855px 1031px #FFF , 629px 61px #FFF , 96px 1762px #FFF , 1235px 387px #FFF , 1381px 1725px #FFF , 845px 1934px #FFF , 1845px 1920px #FFF , 1208px 1250px #FFF , 657px 979px #FFF , 758px 1610px #FFF , 898px 2395px #FFF , 973px 786px #FFF , 2152px 1629px #FFF , 1086px 329px #FFF , 1845px 2363px #FFF , 560px 798px #FFF , 53px 1671px #FFF , 2367px 2022px #FFF , 2390px 1369px #FFF , 2391px 878px #FFF , 1276px 1126px #FFF , 112px 2088px #FFF , 13px 12px #FFF , 2031px 1516px #FFF , 2371px 1012px #FFF , 975px 1376px #FFF , 585px 2265px #FFF , 1967px 1539px #FFF , 2054px 240px #FFF , 654px 137px #FFF , 653px 1857px #FFF , 1513px 1673px #FFF , 142px 75px #FFF , 1215px 613px #FFF , 1593px 1069px #FFF , 1446px 2480px #FFF , 649px 1036px #FFF , 1092px 2062px #FFF , 195px 1030px #FFF , 642px 52px #FFF , 1864px 1748px #FFF , 1639px 931px #FFF , 117px 1140px #FFF , 2373px 501px #FFF , 2090px 2261px #FFF , 505px 1253px #FFF , 114px 1750px #FFF , 1012px 1875px #FFF , 109px 136px #FFF , 126px 1289px #FFF , 1521px 2241px #FFF , 580px 1565px #FFF , 1337px 1355px #FFF , 665px 207px #FFF , 1726px 1218px #FFF , 678px 971px #FFF , 2476px 1244px #FFF , 366px 233px #FFF , 851px 1484px #FFF , 495px 1886px #FFF , 670px 173px #FFF , 1980px 1662px #FFF , 2278px 1263px #FFF , 1858px 1627px #FFF , 376px 347px #FFF , 2245px 2036px #FFF , 11px 725px #FFF , 824px 33px #FFF , 2300px 1353px #FFF , 608px 923px #FFF , 1145px 2353px #FFF , 127px 145px #FFF , 1612px 1066px #FFF , 2254px 457px #FFF , 18px 1573px #FFF , 1131px 1278px #FFF , 1276px 2301px #FFF , 1039px 1822px #FFF , 851px 273px #FFF , 2014px 579px #FFF , 2045px 875px #FFF , 1926px 172px #FFF , 2417px 1749px #FFF , 192px 682px #FFF , 2482px 753px #FFF , 2438px 135px #FFF , 2269px 790px #FFF , 763px 31px #FFF , 1917px 348px #FFF , 1800px 362px #FFF , 885px 2457px #FFF , 2498px 2058px #FFF , 2106px 851px #FFF , 557px 772px #FFF , 2266px 1988px #FFF , 140px 1751px #FFF , 109px 1655px #FFF , 2024px 813px #FFF , 394px 1263px #FFF , 2143px 1181px #FFF , 1035px 478px #FFF , 1906px 692px #FFF , 1342px 454px #FFF , 248px 1402px #FFF , 102px 882px #FFF , 404px 489px #FFF , 203px 2082px #FFF , 1401px 887px #FFF , 2296px 1402px #FFF , 469px 131px #FFF , 1573px 1120px #FFF , 1683px 963px #FFF , 849px 2063px #FFF , 874px 9px #FFF , 1269px 1594px #FFF , 1355px 67px #FFF , 130px 2096px #FFF , 85px 1104px #FFF , 290px 639px #FFF , 2308px 568px #FFF , 1619px 965px #FFF , 1636px 1032px #FFF , 68px 93px #FFF , 592px 1485px #FFF , 2032px 223px #FFF , 2394px 1565px #FFF , 1409px 1321px #FFF , 1435px 1328px #FFF , 91px 383px #FFF , 1381px 1209px #FFF , 114px 2445px #FFF , 710px 2106px #FFF , 1257px 1702px #FFF , 208px 2214px #FFF , 2349px 1287px #FFF , 745px 2227px #FFF , 205px 1769px #FFF , 1556px 959px #FFF , 1317px 1582px #FFF , 259px 5px #FFF , 81px 1262px #FFF , 1961px 1718px #FFF , 593px 343px #FFF , 661px 119px #FFF , 1357px 263px #FFF , 504px 1924px #FFF , 2280px 797px #FFF , 2066px 2258px #FFF , 2107px 2291px #FFF , 1988px 1992px #FFF , 1262px 1278px #FFF , 1543px 1314px #FFF , 159px 1655px #FFF , 1456px 663px #FFF , 1865px 1143px #FFF , 1782px 566px #FFF , 1892px 946px #FFF , 129px 2341px #FFF , 1305px 794px #FFF , 793px 2178px #FFF , 730px 1119px #FFF , 1156px 1557px #FFF , 1106px 704px #FFF , 2270px 593px #FFF , 1672px 395px #FFF , 598px 356px #FFF , 1694px 391px #FFF , 1828px 1401px #FFF , 1242px 904px #FFF , 44px 1733px #FFF , 154px 202px #FFF , 774px 2097px #FFF , 825px 1765px #FFF , 1647px 1073px #FFF , 2398px 2161px #FFF , 2218px 1794px #FFF , 716px 1761px #FFF , 2436px 808px #FFF , 1472px 136px #FFF , 2087px 2342px #FFF , 521px 1720px #FFF , 1003px 2079px #FFF , 435px 274px #FFF , 1701px 1195px #FFF , 2119px 1289px #FFF , 1150px 1361px #FFF , 2029px 1919px #FFF , 366px 111px #FFF , 1934px 350px #FFF , 994px 1181px #FFF , 530px 1177px #FFF , 2216px 14px #FFF , 830px 1050px #FFF , 766px 2120px #FFF , 1876px 1725px #FFF , 242px 1897px #FFF , 1041px 25px #FFF , 1018px 1625px #FFF , 652px 638px #FFF , 1445px 488px #FFF , 2304px 2205px #FFF , 1312px 237px #FFF , 1469px 1130px #FFF , 323px 2364px #FFF , 325px 1120px #FFF , 2395px 372px #FFF , 427px 2215px #FFF , 1806px 164px #FFF , 955px 1159px #FFF , 1157px 2209px #FFF , 1483px 2040px #FFF , 2481px 1794px #FFF , 763px 872px #FFF , 1334px 1494px #FFF , 504px 240px #FFF , 893px 2119px #FFF , 856px 437px #FFF , 707px 1828px #FFF , 1394px 296px #FFF , 1467px 2361px #FFF , 706px 302px #FFF , 1234px 249px #FFF , 334px 1904px #FFF , 9px 2144px #FFF , 2084px 1129px #FFF , 297px 691px #FFF , 413px 1131px #FFF , 971px 1341px #FFF , 1746px 235px #FFF , 7px 1593px #FFF , 1486px 1223px #FFF , 845px 451px #FFF , 1883px 2276px #FFF , 2235px 308px #FFF , 345px 343px #FFF , 1416px 1623px #FFF , 648px 559px #FFF , 1300px 2389px #FFF , 2446px 2443px #FFF , 1004px 1612px #FFF , 2381px 547px #FFF , 1478px 1208px #FFF , 1544px 706px #FFF , 263px 845px #FFF , 1140px 542px #FFF , 2093px 1014px #FFF , 2008px 957px #FFF , 1489px 647px #FFF , 609px 363px #FFF , 250px 1270px #FFF , 677px 1933px #FFF , 1033px 1821px #FFF , 1646px 2277px #FFF , 1668px 580px #FFF , 2468px 1784px #FFF , 1960px 1264px #FFF , 1338px 2408px #FFF , 835px 278px #FFF , 2074px 285px #FFF , 1570px 661px #FFF , 1314px 954px #FFF , 444px 301px #FFF , 469px 561px #FFF , 840px 1587px #FFF , 133px 738px #FFF , 1866px 1988px #FFF , 997px 400px #FFF , 866px 2170px #FFF , 838px 2203px #FFF , 1867px 2090px #FFF , 745px 920px #FFF , 252px 1579px #FFF , 1077px 569px #FFF , 113px 1482px #FFF , 455px 838px #FFF , 1537px 1900px #FFF , 1965px 1777px #FFF , 584px 2494px #FFF , 162px 1387px #FFF , 1752px 1465px #FFF , 1616px 1024px #FFF , 1003px 1347px #FFF , 588px 413px #FFF , 1608px 104px #FFF , 599px 506px #FFF , 661px 805px #FFF , 1212px 1027px #FFF , 458px 912px #FFF , 515px 876px #FFF , 1977px 1187px #FFF , 1603px 1831px #FFF , 12px 2206px #FFF , 158px 2489px #FFF , 287px 1594px #FFF , 861px 1462px #FFF , 2202px 1652px #FFF , 1182px 931px #FFF , 578px 2176px #FFF , 775px 345px #FFF , 418px 1181px #FFF , 1122px 2182px #FFF , 446px 103px #FFF , 1753px 14px #FFF , 578px 2274px #FFF , 1753px 1398px #FFF , 2115px 1082px #FFF , 2394px 1477px #FFF , 409px 13px #FFF , 2422px 772px #FFF , 2081px 2278px #FFF , 1409px 836px #FFF , 242px 2263px #FFF , 437px 2085px #FFF , 1489px 385px #FFF , 1586px 1571px #FFF , 2424px 1477px #FFF , 1586px 1771px #FFF , 2312px 1935px #FFF , 684px 2461px #FFF , 987px 2163px #FFF , 2366px 980px #FFF , 1666px 342px #FFF , 116px 844px #FFF , 1764px 2261px #FFF , 1025px 330px #FFF , 1470px 2046px #FFF , 1735px 1767px #FFF , 1992px 1476px #FFF , 1699px 2137px #FFF , 2249px 1990px #FFF , 1477px 1724px #FFF , 1152px 1902px #FFF , 1044px 129px #FFF , 657px 426px #FFF , 267px 1548px #FFF , 1062px 878px #FFF , 1498px 1284px #FFF , 835px 73px #FFF , 1439px 1590px #FFF;
+}
+
+#stars2 {
+  width: 2px;
+  height: 2px;
+  margin-left: 25%;
+  background: transparent;
+  box-shadow: 1007px 1842px #FFF , 929px 1313px #FFF , 1455px 300px #FFF , 824px 1116px #FFF , 1878px 2339px #FFF , 2287px 2285px #FFF , 2203px 1420px #FFF , 2116px 109px #FFF , 323px 202px #FFF , 1842px 14px #FFF , 2208px 2239px #FFF , 175px 1215px #FFF , 432px 655px #FFF , 422px 1476px #FFF , 419px 282px #FFF , 296px 1007px #FFF , 1278px 2411px #FFF , 1864px 931px #FFF , 727px 907px #FFF , 466px 1609px #FFF , 2388px 1586px #FFF , 1861px 2184px #FFF , 2232px 1910px #FFF , 1236px 1366px #FFF , 1562px 795px #FFF , 1148px 2233px #FFF , 70px 570px #FFF , 1768px 484px #FFF , 1734px 202px #FFF , 2447px 599px #FFF , 2003px 389px #FFF , 2450px 566px #FFF , 2065px 2410px #FFF , 394px 2415px #FFF , 1213px 2310px #FFF , 1798px 467px #FFF , 366px 2456px #FFF , 2433px 2381px #FFF , 209px 911px #FFF , 1163px 2385px #FFF , 940px 447px #FFF , 1632px 220px #FFF , 780px 2486px #FFF , 2161px 1178px #FFF , 209px 773px #FFF , 1481px 899px #FFF , 2446px 1110px #FFF , 135px 1224px #FFF , 2041px 1924px #FFF , 1450px 2418px #FFF , 2462px 1153px #FFF , 1239px 1910px #FFF , 480px 976px #FFF , 492px 1941px #FFF , 1468px 412px #FFF , 1941px 834px #FFF , 975px 618px #FFF , 1792px 1732px #FFF , 2287px 1685px #FFF , 1250px 2387px #FFF , 1964px 2471px #FFF , 1045px 1369px #FFF , 2127px 1946px #FFF , 1134px 157px #FFF , 1284px 1250px #FFF , 1557px 2374px #FFF , 965px 703px #FFF , 424px 1908px #FFF , 1826px 204px #FFF , 2098px 1083px #FFF , 508px 2038px #FFF , 1181px 2433px #FFF , 295px 2030px #FFF , 1889px 2091px #FFF , 36px 1891px #FFF , 2139px 2115px #FFF , 2018px 1194px #FFF , 573px 1496px #FFF , 2311px 2203px #FFF , 960px 1784px #FFF , 451px 2499px #FFF , 2305px 1826px #FFF , 1897px 1651px #FFF , 1812px 1129px #FFF , 975px 420px #FFF , 1189px 994px #FFF , 376px 1019px #FFF , 1559px 2148px #FFF , 1296px 1051px #FFF , 954px 1587px #FFF , 908px 1051px #FFF , 268px 107px #FFF , 214px 114px #FFF , 1917px 1333px #FFF , 2303px 147px #FFF , 2476px 419px #FFF , 1496px 122px #FFF , 270px 1283px #FFF , 1430px 97px #FFF , 95px 2435px #FFF , 2201px 24px #FFF , 218px 876px #FFF , 786px 1444px #FFF , 2056px 472px #FFF , 726px 1827px #FFF , 1612px 2339px #FFF , 674px 1310px #FFF , 1922px 1459px #FFF , 2231px 598px #FFF , 657px 2059px #FFF , 481px 2469px #FFF , 746px 593px #FFF , 1318px 7px #FFF , 1704px 214px #FFF , 1820px 855px #FFF , 485px 843px #FFF , 79px 1526px #FFF , 1097px 2482px #FFF , 1194px 1742px #FFF , 77px 650px #FFF , 1563px 1455px #FFF , 1448px 1064px #FFF , 1743px 161px #FFF , 21px 562px #FFF , 220px 1273px #FFF , 1919px 1539px #FFF , 276px 1640px #FFF , 1928px 1376px #FFF , 68px 1251px #FFF , 1086px 740px #FFF , 777px 1572px #FFF , 1611px 344px #FFF , 1916px 298px #FFF , 85px 1600px #FFF , 1086px 149px #FFF , 538px 175px #FFF , 1288px 2335px #FFF , 1021px 2406px #FFF , 1788px 726px #FFF , 1455px 2392px #FFF , 1239px 2288px #FFF , 1452px 770px #FFF , 2455px 1527px #FFF , 864px 160px #FFF , 1623px 2404px #FFF , 2362px 2059px #FFF , 1855px 140px #FFF , 1375px 386px #FFF , 1829px 610px #FFF , 1377px 1312px #FFF , 1669px 502px #FFF , 1696px 994px #FFF , 2408px 1446px #FFF , 261px 1569px #FFF , 871px 248px #FFF , 1755px 2159px #FFF , 2429px 2496px #FFF , 864px 1685px #FFF , 2364px 142px #FFF , 279px 1111px #FFF , 2463px 1969px #FFF , 1684px 685px #FFF , 1856px 691px #FFF , 1505px 447px #FFF , 53px 1170px #FFF , 1647px 2379px #FFF , 33px 2339px #FFF , 2016px 763px #FFF , 34px 1569px #FFF , 728px 2357px #FFF , 1325px 1325px #FFF , 2283px 2216px #FFF , 1643px 1496px #FFF , 1534px 1172px #FFF , 244px 1243px #FFF , 635px 1480px #FFF , 825px 1584px #FFF , 557px 919px #FFF , 1964px 1482px #FFF , 680px 524px #FFF , 2477px 2285px #FFF , 104px 2119px #FFF , 999px 1748px #FFF , 1800px 403px #FFF , 320px 1469px #FFF , 428px 569px #FFF , 955px 132px #FFF , 1399px 1069px #FFF , 2101px 194px #FFF , 872px 2429px #FFF , 2358px 619px #FFF , 1358px 1376px #FFF , 2249px 635px #FFF , 735px 831px #FFF , 2123px 1394px #FFF , 1115px 2140px #FFF , 1349px 936px #FFF , 999px 400px #FFF , 306px 1834px #FFF , 1687px 216px #FFF;
+  -webkit-animation: animStar 100s infinite linear;
+  -moz-animation: animStar 100s infinite linear;
+  animation: animStar 100s infinite linear;
+}
+#stars2:after {
+  content: " ";
+  position: absolute;
+  top: 2000px;
+  width: 2px;
+  height: 2px;
+  background: transparent;
+  box-shadow: 1007px 1842px #FFF , 929px 1313px #FFF , 1455px 300px #FFF , 824px 1116px #FFF , 1878px 2339px #FFF , 2287px 2285px #FFF , 2203px 1420px #FFF , 2116px 109px #FFF , 323px 202px #FFF , 1842px 14px #FFF , 2208px 2239px #FFF , 175px 1215px #FFF , 432px 655px #FFF , 422px 1476px #FFF , 419px 282px #FFF , 296px 1007px #FFF , 1278px 2411px #FFF , 1864px 931px #FFF , 727px 907px #FFF , 466px 1609px #FFF , 2388px 1586px #FFF , 1861px 2184px #FFF , 2232px 1910px #FFF , 1236px 1366px #FFF , 1562px 795px #FFF , 1148px 2233px #FFF , 70px 570px #FFF , 1768px 484px #FFF , 1734px 202px #FFF , 2447px 599px #FFF , 2003px 389px #FFF , 2450px 566px #FFF , 2065px 2410px #FFF , 394px 2415px #FFF , 1213px 2310px #FFF , 1798px 467px #FFF , 366px 2456px #FFF , 2433px 2381px #FFF , 209px 911px #FFF , 1163px 2385px #FFF , 940px 447px #FFF , 1632px 220px #FFF , 780px 2486px #FFF , 2161px 1178px #FFF , 209px 773px #FFF , 1481px 899px #FFF , 2446px 1110px #FFF , 135px 1224px #FFF , 2041px 1924px #FFF , 1450px 2418px #FFF , 2462px 1153px #FFF , 1239px 1910px #FFF , 480px 976px #FFF , 492px 1941px #FFF , 1468px 412px #FFF , 1941px 834px #FFF , 975px 618px #FFF , 1792px 1732px #FFF , 2287px 1685px #FFF , 1250px 2387px #FFF , 1964px 2471px #FFF , 1045px 1369px #FFF , 2127px 1946px #FFF , 1134px 157px #FFF , 1284px 1250px #FFF , 1557px 2374px #FFF , 965px 703px #FFF , 424px 1908px #FFF , 1826px 204px #FFF , 2098px 1083px #FFF , 508px 2038px #FFF , 1181px 2433px #FFF , 295px 2030px #FFF , 1889px 2091px #FFF , 36px 1891px #FFF , 2139px 2115px #FFF , 2018px 1194px #FFF , 573px 1496px #FFF , 2311px 2203px #FFF , 960px 1784px #FFF , 451px 2499px #FFF , 2305px 1826px #FFF , 1897px 1651px #FFF , 1812px 1129px #FFF , 975px 420px #FFF , 1189px 994px #FFF , 376px 1019px #FFF , 1559px 2148px #FFF , 1296px 1051px #FFF , 954px 1587px #FFF , 908px 1051px #FFF , 268px 107px #FFF , 214px 114px #FFF , 1917px 1333px #FFF , 2303px 147px #FFF , 2476px 419px #FFF , 1496px 122px #FFF , 270px 1283px #FFF , 1430px 97px #FFF , 95px 2435px #FFF , 2201px 24px #FFF , 218px 876px #FFF , 786px 1444px #FFF , 2056px 472px #FFF , 726px 1827px #FFF , 1612px 2339px #FFF , 674px 1310px #FFF , 1922px 1459px #FFF , 2231px 598px #FFF , 657px 2059px #FFF , 481px 2469px #FFF , 746px 593px #FFF , 1318px 7px #FFF , 1704px 214px #FFF , 1820px 855px #FFF , 485px 843px #FFF , 79px 1526px #FFF , 1097px 2482px #FFF , 1194px 1742px #FFF , 77px 650px #FFF , 1563px 1455px #FFF , 1448px 1064px #FFF , 1743px 161px #FFF , 21px 562px #FFF , 220px 1273px #FFF , 1919px 1539px #FFF , 276px 1640px #FFF , 1928px 1376px #FFF , 68px 1251px #FFF , 1086px 740px #FFF , 777px 1572px #FFF , 1611px 344px #FFF , 1916px 298px #FFF , 85px 1600px #FFF , 1086px 149px #FFF , 538px 175px #FFF , 1288px 2335px #FFF , 1021px 2406px #FFF , 1788px 726px #FFF , 1455px 2392px #FFF , 1239px 2288px #FFF , 1452px 770px #FFF , 2455px 1527px #FFF , 864px 160px #FFF , 1623px 2404px #FFF , 2362px 2059px #FFF , 1855px 140px #FFF , 1375px 386px #FFF , 1829px 610px #FFF , 1377px 1312px #FFF , 1669px 502px #FFF , 1696px 994px #FFF , 2408px 1446px #FFF , 261px 1569px #FFF , 871px 248px #FFF , 1755px 2159px #FFF , 2429px 2496px #FFF , 864px 1685px #FFF , 2364px 142px #FFF , 279px 1111px #FFF , 2463px 1969px #FFF , 1684px 685px #FFF , 1856px 691px #FFF , 1505px 447px #FFF , 53px 1170px #FFF , 1647px 2379px #FFF , 33px 2339px #FFF , 2016px 763px #FFF , 34px 1569px #FFF , 728px 2357px #FFF , 1325px 1325px #FFF , 2283px 2216px #FFF , 1643px 1496px #FFF , 1534px 1172px #FFF , 244px 1243px #FFF , 635px 1480px #FFF , 825px 1584px #FFF , 557px 919px #FFF , 1964px 1482px #FFF , 680px 524px #FFF , 2477px 2285px #FFF , 104px 2119px #FFF , 999px 1748px #FFF , 1800px 403px #FFF , 320px 1469px #FFF , 428px 569px #FFF , 955px 132px #FFF , 1399px 1069px #FFF , 2101px 194px #FFF , 872px 2429px #FFF , 2358px 619px #FFF , 1358px 1376px #FFF , 2249px 635px #FFF , 735px 831px #FFF , 2123px 1394px #FFF , 1115px 2140px #FFF , 1349px 936px #FFF , 999px 400px #FFF , 306px 1834px #FFF , 1687px 216px #FFF;
+}
+
+#stars3 {
+  width: 3px;
+  height: 3px;
+  margin-left: 25%;
+  background: transparent;
+  box-shadow: 331px 1110px #FFF , 2327px 32px #FFF , 2034px 510px #FFF , 6px 147px #FFF , 2320px 1230px #FFF , 2206px 926px #FFF , 533px 1628px #FFF , 536px 2399px #FFF , 395px 2320px #FFF , 1522px 2289px #FFF , 2018px 1337px #FFF , 1036px 2296px #FFF , 995px 1470px #FFF , 2015px 2161px #FFF , 337px 2169px #FFF , 1199px 528px #FFF , 476px 640px #FFF , 434px 2298px #FFF , 269px 1326px #FFF , 2289px 1885px #FFF , 127px 1922px #FFF , 1986px 1148px #FFF , 1348px 1576px #FFF , 1541px 1300px #FFF , 2261px 334px #FFF , 638px 2348px #FFF , 991px 184px #FFF , 1714px 242px #FFF , 495px 1068px #FFF , 1252px 2046px #FFF , 560px 1298px #FFF , 1438px 2419px #FFF , 1228px 1249px #FFF , 180px 697px #FFF , 1995px 201px #FFF , 1886px 990px #FFF , 1949px 1385px #FFF , 1676px 1072px #FFF , 1930px 1035px #FFF , 533px 2474px #FFF , 59px 2326px #FFF , 1855px 694px #FFF , 888px 643px #FFF , 130px 1702px #FFF , 514px 1889px #FFF , 825px 86px #FFF , 57px 838px #FFF , 2105px 788px #FFF , 1766px 1818px #FFF , 821px 415px #FFF , 1167px 1053px #FFF , 26px 2238px #FFF , 788px 729px #FFF , 1649px 481px #FFF , 1243px 2062px #FFF , 2365px 1187px #FFF , 1530px 782px #FFF , 1242px 1547px #FFF , 1818px 1019px #FFF , 2221px 2476px #FFF , 74px 873px #FFF , 686px 1246px #FFF , 1886px 944px #FFF , 1487px 410px #FFF , 1864px 2010px #FFF , 2297px 1093px #FFF , 2336px 1936px #FFF , 997px 2445px #FFF , 956px 1451px #FFF , 35px 1160px #FFF , 2179px 2261px #FFF , 516px 2257px #FFF , 2348px 1661px #FFF , 2492px 447px #FFF , 1944px 573px #FFF , 1380px 2173px #FFF , 2183px 856px #FFF , 1206px 440px #FFF , 2461px 2417px #FFF , 162px 1250px #FFF , 1678px 2312px #FFF , 2395px 2074px #FFF , 1130px 1343px #FFF , 1738px 55px #FFF , 1534px 256px #FFF , 576px 890px #FFF , 1069px 1085px #FFF , 1956px 2026px #FFF , 375px 1696px #FFF , 972px 320px #FFF , 1469px 468px #FFF , 218px 2346px #FFF , 2355px 1824px #FFF , 1841px 851px #FFF , 796px 377px #FFF , 1118px 2355px #FFF , 1268px 2124px #FFF , 276px 400px #FFF , 1640px 2107px #FFF , 1930px 228px #FFF;
+  -webkit-animation: animStar 150s infinite linear;
+  -moz-animation: animStar 150s infinite linear;
+  animation: animStar 150s infinite linear;
+}
+#stars3:after {
+  content: " ";
+  position: absolute;
+  top: 2000px;
+  width: 3px;
+  height: 3px;
+  background: transparent;
+  box-shadow: 331px 1110px #FFF , 2327px 32px #FFF , 2034px 510px #FFF , 6px 147px #FFF , 2320px 1230px #FFF , 2206px 926px #FFF , 533px 1628px #FFF , 536px 2399px #FFF , 395px 2320px #FFF , 1522px 2289px #FFF , 2018px 1337px #FFF , 1036px 2296px #FFF , 995px 1470px #FFF , 2015px 2161px #FFF , 337px 2169px #FFF , 1199px 528px #FFF , 476px 640px #FFF , 434px 2298px #FFF , 269px 1326px #FFF , 2289px 1885px #FFF , 127px 1922px #FFF , 1986px 1148px #FFF , 1348px 1576px #FFF , 1541px 1300px #FFF , 2261px 334px #FFF , 638px 2348px #FFF , 991px 184px #FFF , 1714px 242px #FFF , 495px 1068px #FFF , 1252px 2046px #FFF , 560px 1298px #FFF , 1438px 2419px #FFF , 1228px 1249px #FFF , 180px 697px #FFF , 1995px 201px #FFF , 1886px 990px #FFF , 1949px 1385px #FFF , 1676px 1072px #FFF , 1930px 1035px #FFF , 533px 2474px #FFF , 59px 2326px #FFF , 1855px 694px #FFF , 888px 643px #FFF , 130px 1702px #FFF , 514px 1889px #FFF , 825px 86px #FFF , 57px 838px #FFF , 2105px 788px #FFF , 1766px 1818px #FFF , 821px 415px #FFF , 1167px 1053px #FFF , 26px 2238px #FFF , 788px 729px #FFF , 1649px 481px #FFF , 1243px 2062px #FFF , 2365px 1187px #FFF , 1530px 782px #FFF , 1242px 1547px #FFF , 1818px 1019px #FFF , 2221px 2476px #FFF , 74px 873px #FFF , 686px 1246px #FFF , 1886px 944px #FFF , 1487px 410px #FFF , 1864px 2010px #FFF , 2297px 1093px #FFF , 2336px 1936px #FFF , 997px 2445px #FFF , 956px 1451px #FFF , 35px 1160px #FFF , 2179px 2261px #FFF , 516px 2257px #FFF , 2348px 1661px #FFF , 2492px 447px #FFF , 1944px 573px #FFF , 1380px 2173px #FFF , 2183px 856px #FFF , 1206px 440px #FFF , 2461px 2417px #FFF , 162px 1250px #FFF , 1678px 2312px #FFF , 2395px 2074px #FFF , 1130px 1343px #FFF , 1738px 55px #FFF , 1534px 256px #FFF , 576px 890px #FFF , 1069px 1085px #FFF , 1956px 2026px #FFF , 375px 1696px #FFF , 972px 320px #FFF , 1469px 468px #FFF , 218px 2346px #FFF , 2355px 1824px #FFF , 1841px 851px #FFF , 796px 377px #FFF , 1118px 2355px #FFF , 1268px 2124px #FFF , 276px 400px #FFF , 1640px 2107px #FFF , 1930px 228px #FFF;
+}
+
+@-webkit-keyframes animStar {
+  from {
+    -webkit-transform: translateY(0px);
+  }
+  to {
+    -webkit-transform: translateY(-2000px);
+  }
+}
+@-moz-keyframes animStar {
+  from {
+    -moz-transform: translateY(0px);
+  }
+  to {
+    -moz-transform: translateY(-2000px);
+  }
+}
+@keyframes animStar {
+  from {
+    -webkit-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+  to {
+    -webkit-transform: translateY(-2000px);
+    -moz-transform: translateY(-2000px);
+    -ms-transform: translateY(-2000px);
+    -o-transform: translateY(-2000px);
+    transform: translateY(-2000px);
+  }
+}
+
+.-solid {
+    background-color: #fff;;
+    color: #333;
+    height: 60px;
+    padding: 7px;
+    text-shadow: none !important;
+    box-shadow: 0 0 5px #000;
+}
+
+.-solid .navicon span {
+    background: #FF5D3A;
+}
+.-solid .navicon span:after  {
+    background: #FF5D3A;
+}
+.-solid .navicon span:before  {
+    background: #FF5D3A;
+}
+
+.-solid .navicon span:after  {
+    background: #FF5D3A;
+}
+
+
+
+.-solid .navicon span:before  {
+    background: #FF5D3A;
+}
+
+
+.-solid .navicon span:before  {
+    background: #FF5D3A;
+}
+
+
+
+.-solid .navicon span:after  {
+    background: #FF5D3A;
+}
+
+
+.-solid .navicon span:before  {
+    background: #FF5D3A;
+}
+
+
+
+.-solid .navicon span:after  {
+    background: #FF5D3A;
+}
+
+
+.-solid .navicon span:before  {
+    background: #FF5D3A;
+}
+
+
+
+.-solid .navicon span:after  {
+    background: #FF5D3A;
+}
+
+
+.-solid .navicon span:before  {
+    background: #FF5D3A;
+}
+
+
+
+.-solid .navicon span:after  {
+    background: #FF5D3A;
+}
+
+
+
+.-solid .navicon span:before  {
+    background: #FF5D3A;
+}
+
+
+
+.-solid .navicon span:after  {
+    background: #FF5D3A;
+}
+
+
+.-solid .navicon span:before  {
+    background: #FF5D3A;
+}
+
+
+
+.-solid .navicon span:after  {
+    background: #FF5D3A;
+}
+
+
+.-solid .navicon span:before  {
+    background: #FF5D3A;
+}
+
+
+
+.-solid .navicon span:after  {
+    background: #FF5D3A;
+}
+
+.-solid .navicon span:before  {
+    background: #FF5D3A;
+}
+
+
+.-solid .navicon span:after  {
+    background: #FF5D3A;
+}
+
+.open-menu .nav-wrapper {
+    background:transparent !important;
+    color:#fff;
+
+}
+.open-menu .nav-wrapper .navicon span:after {
+    background-color:#fff !important;
+}
+.open-menu .nav-wrapper .navicon span:before {
+    background-color:#fff !important;
+}
+.open-menu .nav-wrapper .navicon span {
+    background-color:transparent !important;
 }
