@@ -62,7 +62,7 @@ export default Vue.extend({
   }
 
   .console .prompt {
-    @apply flex text-xl my-2;
+    @apply flex text-xl mb-2;
     height: 40px;
   }
 
